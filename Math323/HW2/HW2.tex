@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW2}
+\begin{document}
+% Generates the title
+\maketitle
+\begin{enumerate}
+    \item Problem 4: Be careful reading these formula
+        \begin{enumerate}
+            \item Prove that for all natural numbers $n,
+                \sum_{k=1}^n (2k - 1) = n^2$ 
+            \item Prove that for all natural numbers $n,
+                \sum_{k=1}^n 2k - 1 = n^2 + n - 1$
+        \end{enumerate}
+    \emph{Solution:}
+        \begin{enumerate}
+            \item \emph{Proof:} Assume $n \in \mathbb{N}$, 
+                we will prove part (a) using a proof by induction on n.
+                \begin{enumerate}
+                    \item Base case: If $n = 1$, then $\sum_{k=1}^n (2k - 1) = n^2.$
+                        Assume $n = 1$, we consider
+                        \begin{equation*}
+                            \sum_{k=1}^n (2k - 1) = \sum_{k=1}^1 (2k - 1) = 1 \text{ and }
+                            n^2 = 1^2 = 1
+                        \end{equation*}
+                        So for $n = 1$, $\sum_{k=1}^n (2k - 1) = n^2$.
+                    \item Inductive case: If for $n = n_{0}, \sum_{k=1}^n (2k - 1) = n^2$, 
+                        then for $n = n_{0} + 1$, $\sum_{k=1}^n (2k - 1) = n^2.$
+
+                        Assume $n = n_{0}$ and $\sum_{k=1}^n (2k - 1) = n^2$, meaning
+                        \begin{equation}
+                            \sum_{k=1}^{n_{0}} (2k - 1) = n_{0}^2
+                        \end{equation}
+                        \\
+                        Equation (1) is our inductive hypothesis. We add $2(n_{0} + 1) - 1$ to both side of (1).
+                        \begin{equation*}
+                        \sum_{k=1}^{n_{0}} (2k - 1) + 2(n_{0} + 1) - 1 = n_{0} + 2(n_{0} + 1) - 1
+                        \end{equation*}
+
+                        \begin{equation*}
+                            \begin{split}
+                            \sum_{k=1}^{n_{0}+1} (2k - 1)& =  n_{0}^2 + 2n_{0} + 2 - 1\\
+                                &= n_{0}^2 + 2n_{0} + 1\\
+                                &= (n_{0} + 1)^2
+                            \end{split}
+                        \end{equation*}
+                    So we have proved: If $n = n_{0}, \sum_{k=1}^n (2k - 1) = n^2$, then if for $n = n_{0} + 1$ then $\sum_{k=1}^n (2k - 1) = n^2.$
+                \end{enumerate}
+            Proving claim (i) and (ii) completes our proof by induction on n. \qed
+
+        \item \emph{Proof:} Assume $n \in \mathbb{N}$, we will prove (b) 
+                using a proof by induction on $n$.
+
+                \begin{enumerate}
+                    \item Base case: If $n = 1$, then $\sum_{k=1}^n 2k - 1 = n^2 + n - 1.$
+                        Assume $n = 1$, we have
+                        \begin{equation*}
+                            \sum_{k=1}^n 2k - 1 = \sum_{k=1}^1 2k - 1 = 2 (1) - 1 = 1 \text{ and }
+                            n^2 + n - 1 = 1^2 + 1 - 1 = 1
+                        \end{equation*}
+                        So for $n = 1$, $\sum_{k=1}^n 2k - 1 = n^2 + n - 1$.
+                    \item Inductive case: If for $n = n_0, \sum_{k=1}^n 2k - 1 = n^2 +n - 1$, then for $n = n_0 + 1, \sum_{k=1}^n 2k - 1 = n^2 + n - 1.$
+                        Assume that $n = n_0, \sum_{k=1}^n 2k - 1 = n^2 + n - 1$.
+                        We consider our inductive hypothesis:
+                            \begin{gather*}
+                            \sum_{k=1}^{n_0} 2k - 1 = n_0^2 + n_0 - 1\\
+                            \sum_{k=1}^{n_0} 2k - 1 + 2(n_0 + 1) = n_o^2 + n_0 - 1 + 2(n_0 + 1)\\
+                            \begin{split}
+                                \sum_{k=1}^{n_0 + 1} 2k - 1& = n_0^2 + n_0 - 1 + 2n_0 + 2\\
+                                &= n_0^2 + 2n_0 + 1 + n_0 + 1 - 1\\
+                                &= (n_0 + 1)^2 + (n_0 + 1) - 1
+                            \end{split}
+                            \end{gather*}
+                \end{enumerate}
+                So proving (i) and (ii) completes our proof by induction on $n$. \qed
+        \end{enumerate}
+        
+    \item Problem 7: Prove that: $\forall n \in \mathbb{N}, \prod\limits_{k=1}^{n} (1 + \frac{1}{k}) = n + 1$\\
+        \emph{Proof.} Assume that $n \in \mathbb{N}$, 
+        we will prove that $\prod\limits_{k=1}^n (1 + \frac{1}{k}) = n + 1$ by induction on $n$.
+        \begin{enumerate}
+            \item Base case: If $n = 1$, then $\prod\limits_{k=1}^n (1 + \frac{1}{k}) = n + 1$.
+                Assume $n = 1$, consider
+                \begin{equation*}
+                    \prod\limits_{k=1}^n (1 + \frac{1}{k}) = \prod\limits_{k=1}^1 (1 + \frac{1}{k}) = 1 + \frac{1}{1} = 2 \text{ and } n + 1 = 1 + 1 = 2
+                \end{equation*}
+                So for $n = 1, \prod\limits_{k=1}^n (1 + \frac{1}{k}) = n + 1$.
+            \item Inductive case: If for $n = n_0, \prod\limits_{k=1}^n (1 + \frac{1}{k}) = n + 1$, then 
+                for $n = n_0 + 1, \prod\limits_{k=1}^n (1 + \frac{1}{k}) = n + 1$.
+                Assume $n = n_0$, by our inductive hypothesis, we have
+                \begin{equation}
+                    \prod\limits_{k=1}^{n_0} (1 + \frac{1}{k}) = n_0 + 1
+                \end{equation}
+                Multiplying both side of $(2)$ by $(1 + \frac{1}{n_0 + 1})$ we get
+                \begin{gather*}
+                    \prod\limits_{k=1}^{n_0} (1 + \frac{1}{k})(1 + \frac{1}{n_0 + 1}) = (n_0 + 1)(1 + \frac{1}{n_0 + 1})\\
+                    \begin{split}
+                        \prod\limits_{k=1}^{n_0 + 1} (1 + \frac{1}{k})& = (n_0 + 1)1 + \frac{n_0+1}{n_0+1}\\
+                        &= n_0 + 1 + 1 = (n_0 + 1) + 1
+                    \end{split}
+                \end{gather*}
+        \end{enumerate}
+        Proving claim (a) and (b) completes the proof by induction on $n$. \qed
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW9}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\begin{document}
+% Generates the title
+\maketitle
+\begin{enumerate}
+    \item[Problem 6.3:] For any subset $S \subseteq \mathbb{R}$, let
+        \begin{equation*}
+            LB(S) = \{ l \in \mathbb{R} \mid l \text{ is a lower bound on the set } S \}
+        \end{equation*}
+        Prove that if $s \in S$, then $s$ is an upper bound of $LB(S)$.
+        \begin{proof}
+            Assume $s \in S$. Assume $l \in LB(S)$. Since $LB(S)$ is the set of lower bound of $S$, $l \le s$. This means $s$ is an upper bound of $LB(S)$. 
+        \end{proof}
+    \item[Problem 6.4:] Let $A$ be a set of real numbers.
+        \begin{enumerate}
+            \item Prove that if $A$ has an upper bound, then $A$ has an upper bound that is a natural number.
+            \begin{proof}
+                Assume $A$ is a set of real numbers. Assume $A$ has an upper bound. Call it $u$. And so if $a \in A$, then $u \ge a$. By the Archimedean principle, $\forall a \in A$ and $a \in \mathbb{R}$, $\exists n \in \mathbb{N}$ so that $n > a$. And so $n \ge a$. This means $n$ is an upper bound of $A$. Let $u = n$ and we have what we need.
+            \end{proof}
+            \item Prove that if $A$ has a lower bound, then $A$ has a lower bound that is an integer.
+            \begin{proof}
+                Assume $A$ is a set of real numbers. Assume $A$ has a lower bound. Call it $l$. And so if $a \in A$, then $l \le a$. By the Archimedean principle, $\forall a \in A$ so that $-a \in \mathbb{R}$, $\exists n \in \mathbb{N}$ so that $n > -a$. And so $-n < a$. So $-n \le a$. So $-n$ is a lower bound of $A$ and $-n \in \mathbb{Z}$. Let $l = -n$ and we have what we need.
+            \end{proof}
+            \item Prove that if $A$ has a lower bound and an upper bound, then there is a natural number $n$ so that $n$ is an upper bound and $-n$ is a lower bound of $A$.
+            \begin{proof}
+                Assume $A$ is a set of real numbers. Assume $A$ has a lower bound $l$ and an upper bound $u$. So if $a \in A$, then $l \le a \le u$. Since $a \in \mathbb{R}$, by the Archimedean principle, $\exists n \in \mathbb{N}$ so that $n > a$. If $n \in \mathbb{N}$, in $\mathbb{Z}$, $n > -n$. So we have $-n < a < n$. And so $-n \le a \le n$. Let $l = -n$ and $u = n$ and we have what we need.
+            \end{proof}
+            \item Prove that $A$ is bounded (above and below) if and only if $\exists n \in \mathbb{N}$ so that $\forall x \in A$, $-n \le x \le n$.
+            \begin{proof}
+                We need to prove 2 statements: 
+                \begin{enumerate}
+                    \item[1.] If $A$ is bounded above and below then $\exists n \in \mathbb{N}$ so that $\forall x \in A$, $-n \le x \le n$.\\
+                    \begin{proof}
+                        Assume $A$ is bounded above and below. This means $A$ has a lower bound $l$ and an upper bound $u$. So if $a \in A$, then $l \le a \le u$. Since $a \in \mathbb{R}$, by the Archimedean principle, $\exists n \in \mathbb{N}$ so that $n > a$. If $n \in \mathbb{N}$, in $\mathbb{Z}$, $n > -n$. So we have $-n < a < n$. And so $-n \le a \le n$. Let $l = -n$ and $u = n$ and we have what we need.
+                    \end{proof}
+                    \item[2.] If $\forall x \in A$, $-n \le x \le n$, then A is bounded above and below.\\
+                    \begin{proof}
+                        Assume $\forall x \in A$, $-n \le x \le n$. This means $-n \le a$ and $a \le n$. These statements, respectively mean $-n$ is a lower bound of $A$ and $n$ is an upper bound of $A$. So A is bounded above and below.
+                    \end{proof}
+                \end{enumerate}
+            \end{proof}
+            \item Prove that $A$ is bounded (above and below) if and only if $\exists n \in \mathbb{N}$ so that $\forall x \in A$, $-n < x < n$.
+            \begin{proof}
+                We need to prove 2 statements: 
+                \begin{enumerate}
+                    \item[1.] If $A$ is bounded above and below then $\exists n \in \mathbb{N}$ so that $\forall x \in A$, $-n < x < n$.\\
+                    \begin{proof}
+                        Assume $A$ is bounded above and below. This means $A$ has a lower bound $l$ and an upper bound $u$. So if $a \in A$, then $l \le a \le u$. Since $a \in \mathbb{R}$, by the Archimedean principle, $\exists n \in \mathbb{N}$ so that $n > a$. If $n \in \mathbb{N}$, in $\mathbb{Z}$, $n > -n$. So we have $-n < a < n$. Let $l = -n$ and $u = n$ and we have what we need.
+                    \end{proof}
+                    \item[2.] If $\forall x \in A$, $-n < x < n$, then A is bounded above and below.\\
+                    \begin{proof}
+                        Assume $\forall x \in A$, $-n < x < n$. This means $-n < a$ and $a < n$. These statements, respectively mean $-n$ is a lower bound of $A$ and $n$ is an upper bound of $A$. So A is bounded above and below.
+                    \end{proof}
+                \end{enumerate}
+            \end{proof}
+        \end{enumerate}
+    \item[Problem 6.5:] Let $a, b \in \mathbb{R}$ with $a < b$. Prove that $\exists s \in \mathbb{R}$ such that $a < s < b$.
+        \begin{proof}
+            Assume $a, b \in \mathbb{R}$ with $a < b$. Since $\mathbb{R}$ is an ordered field, by the Average theorem, $\exists s \in \mathbb{R}$ so that $a < s < b$.
+        \end{proof}
+\end{enumerate}
+\end{document}

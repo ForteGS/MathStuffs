@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW6}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\begin{document}
+% Generates the title
+\maketitle
+\begin{enumerate}
+    \item[Problem 4.6:] Prove that addition in $\mathbb{Q}$ is well-defined.
+        \begin{proof}
+            We will prove the following statement: If $\frac{m}{n}, \frac{p}{q}, \frac{r}{s}, \frac{t}{u} \in \mathbb{Q}$ such that $\frac{m}{n} = \frac{r}{s}$ and $\frac{p}{q} = \frac{t}{u}$, then $\frac{m}{n} + \frac{p}{q} = \frac{r}{s} + \frac{t}{u}$.\\
+            Assume $\frac{m}{n}, \frac{p}{q}, \frac{r}{s}, \frac{t}{u} \in \mathbb{Q}$ such that $\frac{m}{n} = \frac{r}{s}$ and $\frac{p}{q} = \frac{t}{u}$. So $ms = rn$ and $pu = qt$. Consider $ms = rn$ when we multiply both sides by the natural number $qu$.
+            \begin{gather}
+                ms = rn\\
+                ms(qu) = rn(qu)
+            \end{gather}
+            Similarly, consider $pu = qt$ when we multiply both sides by the natural number $sn$.
+            \begin{gather}
+                pu = qt\\
+                pu(sn) = qt(sn)
+            \end{gather}
+            Revisiting equation $(2)$ again
+            \begin{gather*}
+                ms(qu) = rn(qu)\\
+                ms(qu) + pu(sn) = rn(qu) + pu(sn)\\
+                ms(qu) + pu(sn) = rn(qu) + qt(sn) \text{ by (4) }\\
+                sumq + supn = nqru + nqst \text{ by commutativity and associativity }\\
+                su(mq + pn) = nq(ru + st)\\
+                \frac{(mq + pn)}{nq} = \frac{(ru + st)}{su}\\
+                \frac{m}{n} + \frac{p}{q} = \frac{r}{s} + \frac{t}{u}
+            \end{gather*}
+            And so we have proved that addition in $\mathbb{Q}$ is well-defined.
+        \end{proof}
+    \item[Problem 4.12:] Prove that multiplication in $\mathbb{Q}$ is commutative.
+        \begin{proof}
+            We need to prove: If $\frac{m}{n}, \frac{p}{q} \in \mathbb{Q}$, then $\frac{m}{n} \cdot \frac{p}{q} = \frac{p}{q} \cdot \frac{m}{n}$.\\
+            Assume $\frac{m}{n}, \frac{p}{q} \in \mathbb{Q}$, consider the expression
+            \begin{align*}
+                \frac{m}{n} \cdot \frac{p}{q} &= \frac{mp}{nq}\\
+                &= \frac{pm}{nq} \text{ multiplication is commutative in } \mathbb{Z}\\
+                &= \frac{pm}{qn} \text{ multiplication is commutative in } \mathbb{N}\\
+                &= \frac{p}{q} \cdot \frac{m}{n}
+            \end{align*}
+            So multiplication is commutative in $\mathbb{Q}$.
+        \end{proof}
+    \item[Problem 4.17:] Prove that there is no $r \in \mathbb{Q}$ so that $r^2 = 6$.
+        \begin{proof}
+            Assume by way of contradiction, $\exists r \in \mathbb{Q}$ so that $r^2 = 6$. Since $r \in \mathbb{Q}$, $\exists i \in \mathbb{Z}$ and $\exists j \in \mathbb{N}$ so that $r = \frac{i}{j}$. Let $D$ be a set of natural numbers such that
+            \begin{equation}
+                D = \{k \in \mathbb{N} \mid \exists l \in \mathbb{Z} \text{ so that } r = \frac{l}{k}\}
+            \end{equation}
+            Since $r = \frac{i}{j}$, we know $j \in D$ and so $D \ne \emptyset$. By the Well Ordering principle, $D$ has a minimum. Call it $m_D$. So $\exists m_N \in \mathbb{Z}$ so that $r = \frac{m_N}{m_D}$ \\
+            Consider $r = \frac{m_N}{m_D}$.
+            \begin{gather*}
+                r^2 = \frac{m_N^2}{m_D^2} = 6\\
+                m_N^2 = 6m_D^2\\
+                m_N^2 = 2.3.m_D^2
+            \end{gather*}
+            This means $m_N^2$ is even. And so is $m_N$, which means $\exists n \in \mathbb{Z}$ so that $m_N = 2n$.
+            We have
+            \begin{gather*}
+                m_N^2 = 6m_D^2\\
+                (2n)^2 = 6m_D^2\\
+                4n^2 = 6m_D^2\\
+                2n^2 = 3m_D^2
+            \end{gather*}
+            This means $3m_D^2$ is even. And so is $m_D^2$. And so is $m_D$, which means $\exists m \in \mathbb{Z}$ so that $m_D = 2m$.
+            So now we can rewrite $r$ as $r = \frac{m_N}{m_D} = \frac{2n}{2m} = \frac{n}{m}$. And so $m \in D$.\\
+            But our assumption says that $m_D$ is the minimum of $D$. And now we have $m_D = 2m$ and $m \in D$. This contradicts our assumption that $m_D$ is the minimum of $D$. $\contradiction$\\
+            So $\nexists r \in \mathbb{Q}$ such that $r^2 = 6$. 
+        \end{proof}
+\end{enumerate}
+\end{document}

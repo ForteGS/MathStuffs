@@ -1,0 +1,97 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW5}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\begin{document}
+% Generates the title
+\maketitle
+\begin{enumerate}
+    \item[Problem 3.2:] Give an example of a set of integers with at least one element but no minimum.
+    \item[] \emph{Solution.} Let $A = \{k \in \mathbb{Z} \mid k < 0\}$ is a nonempty set of integers that does not have a minimum.
+    \item[Problem 3.4:] Consider $A = \{m \in \mathbb{Z} \mid m > 17\}$.
+        \begin{enumerate}
+            \item Is 17 a lower bound of $A$?
+            \item Is 12 a lower bound of $A$?
+            \item Is 20 a lower bound of $A$?
+            \item Is 17 a minimum of $A$?
+            \item Is 12 a minimum of $A$?
+            \item Is 20 a minimum of $A$?
+            \item Is 18 a lower bound of $A$?
+            \item Is 18 a minimum of $A$?
+        \end{enumerate}
+    \item[] \emph{Solution:} We review our definition of lower bound and minimum from Prof. Madden's book.
+        \begin{definition}
+            In an ordered number system the number $l$ is said to be a lower bound on a set $S$ when: if $s \in S$, then $l \le s$.
+        \end{definition}
+        \begin{definition}
+            Let $S$ be a set of numbers. We say $m$ is a minimum of the set $S$ when
+            \begin{enumerate}
+                \item[1.] $m \in S$
+                \item[2.] If $s \in S$, then $m \le s$
+            \end{enumerate}
+        \end{definition}
+        \begin{enumerate}
+            \item 17 is a lower bound of $A$. 
+            \item 12 a lower bound of $A$.
+            \item 20 is not a lower bound of $A$ since $20 \in A$, $18 \in A$ but $20 > 18$.
+            \item 17 is not a minimum of $A$ since it's not in the set $A$.
+            \item 12 is not a minimum of $A$ since it's not in the set $A$.
+            \item 20 is not a minimum of $A$ since $18 \in A$ but $20 > 18$.
+            \item 18 is a lower bound of $A$ since for $m \in \mathbb{Z}$ and $m > 17$, $m \ge 18$.
+            \item 18 is a minimum of $A$ since $18 \in A$ and $\forall m \in A$, $m \ge 18$.
+        \end{enumerate}
+
+    \item[Problem 3.12:] Let $A$ and $B$ be sets of integers so that every element of $A$ is also an element of $B$. Let $r, s \in \mathbb{Z}$ with $r < s$. Are the following true or false?
+        \begin{enumerate}
+            \item If $r$ is a lower bound on $A$, then $s$ is a lower bound on $A$.
+                \item[] False. If there is an integer $k$ such that $r < k < s$ and if $k \in A$ then $s$ is not a lower bound of $A$.
+            \item If $s$ is a lower bound on $A$, then $r$ is a lower bound on $A$.
+                \item[] True since $s$ is smaller than every elements in A and $r < s$.
+            \item If $r$ is a lower bound on $A$, then $s$ is a lower bound on $B$.
+                \item[] False. We know $A \subseteq B$. So there is a case that $A = B$. Assume set $A$ or $B$ has a minimum and assume such minimum is actually $r$. Assume $s \in B$. We know $s > r$. And so $s$ cannot be a lower bound on $B$.
+            \item If $s$ is a lower bound on $A$, then $r$ is a lower bound on $B$.
+                \item[] False. We know $A \subseteq B$, but what if $\exists k \in B$ and $k \notin A$ such that $k < r$?
+            \item If $r$ is a lower bound on $B$, then $s$ is a lower bound on $A$.
+                \item[] False. $s$ is not a lower bound on $A$ if $\exists a \in A$ such that $r < a < s$.
+            \item If $s$ is a lower bound on $B$, then $r$ is a lower bound on $A$.
+                \item[] True. 
+        \end{enumerate}
+    \item[Problem 3.13:] Let $A$ be a set of integers and $m \in \mathbb{Z}$. Define the terms:
+        \begin{enumerate}
+            \item $m$ is a maximum of $A$.
+            \item $m$ is an upper bound of $A$.
+        \end{enumerate}
+    \item[] \emph{Solution.}
+        \begin{definition}
+            Let $A$ be a set of integers and $m \in \mathbb{Z}$. We say $m$ is a maximum of $A$ if and only if
+            \begin{enumerate}
+                \item[1.] $m \in A$
+                \item[2.] If $a \in A$, then $a \le m$
+            \end{enumerate}
+        \end{definition}
+        \begin{definition}
+            Let $A$ be a set of integers and $m \in \mathbb{Z}$. We say $m$ is an upper bound of $A$ if and only if it satisfies this condition: if $a \in A$, then $m \ge a$.
+        \end{definition}
+    \item[Problem 3.11:] Let $a, b \in \mathbb{Z}$. Prove: If $a \ne b$, then $ab \ne 1$.
+        \begin{proof}
+            Assume $a, b \in \mathbb{Z}$ and $a \ne b$.
+            Assume by way of contradiction, $ab = 1$.
+            By our assumption, $a \ne 0$ and $b \ne 0$. Since $a, b \in \mathbb{Z}$, 
+            \begin{gather*}
+                a^2 > 0 \text{ and } b^2 > 0\\
+                a^2 \ge 1 \text{ and } b^2 \ge 1\\
+                a^2b^2 \ge b^2 \text{ and } b^2a^2 \ge a^2 \text{ but } ab = 1\\
+                1 \ge b^2 \text{ and } 1 \ge a^2 \contradiction
+            \end{gather*}
+            So $ab \ne 1$ and thus this completes the proof by contradiction.
+        \end{proof}
+\end{enumerate}
+\end{document}

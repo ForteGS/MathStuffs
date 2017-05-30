@@ -1,0 +1,127 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW7}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\begin{document}
+% Generates the title
+\maketitle
+\begin{enumerate}
+    \item[Problem 5.2:] Let $\mathbb{F}$ be an ordered field.
+        \begin{enumerate}
+            \item Prove: For all $n \in \mathbb{N}$, if $a_1 \in \mathbb{F}; a_2 \in \mathbb{F}; ... a_n \in \mathbb{F}$, then $\sum\limits_{k=1}^n a_k^2 \ge 0$.
+            \item Prove: For all $n \in \mathbb{N}$, if $a_1 \in \mathbb{F}; a_2 \in \mathbb{F}; ... a_n \in \mathbb{F}$, and $\sum\limits_{k=1}^n a_k^2 = 0$, then $a_1 = a_2 = a_3 = ... = a_n = 0$.
+        \end{enumerate}
+    \item[] \emph{Solution.}
+        \begin{enumerate}
+            \item We will prove (a) using induction on $n$.
+                \begin{proof}
+                    Assume $n \in \mathbb{N}$. We need to prove two claims.
+                    \begin{enumerate}
+                        \item We want to show that: If for $n = 1$, then if $a_1 \in \mathbb{F}; ... ;a_n \in \mathbb{F}$, then $\sum\limits_{k=1}^n a_k^2 \ge 0$.\\
+                        Assume $n = 1$. Assume $a_1 \in \mathbb{F}; ...; a_n \in \mathbb{F}$. So $a_1 \in \mathbb{F}$. Consider the expression 
+                        \begin{equation*}
+                            \sum\limits_{k=1}^n a_k^2 = \sum\limits_{k=1}^1 a_k^2 = a_1^2 \ge 0
+                        \end{equation*}
+                        So for $n = 1$, if $a_1,...,a_n \in \mathbb{F}$, then $\sum\limits_{k=1}^n a_k^2 \ge 0$.
+                    \item We also want to show that: If for $n = n_0$, if $a_1 \in \mathbb{F}; ... ; a_n \in \mathbb{F}$, then $\sum\limits_{k=1}^n a_k^2 \ge 0$ then for $n = n_0 + 1$, if $a_1, ..., a_n \in \mathbb{F}$, then $\sum\limits_{k=1}^n a_k^2 \ge 0$.\\
+                        Assume for $n = n_0$. Assume if $a_1, ..., a_n \in \mathbb{F}$, then  $\sum\limits_{k=1}^n a_k^2$. And so if $a_1, ..., a_{n_0} \in \mathbb{F}$, then $\sum\limits_{k=1}^{n_0} a_k^2 \ge 0$. Assume $\exists a_{n_0 + 1} \in \mathbb{F}$.\\ 
+                        We know $\sum\limits_{k=1}^{n_0} a_k^2 \ge 0$ by our inductive hypothesis. We also know $a_{n_0 + 1}^2 \ge 0$. So we can conclude that
+                        \begin{equation*}
+                            \sum\limits_{k=1}^{n_0} a_k^2 + a_{n_0 + 1}^2 = \sum\limits_{k=1}^{n_0 + 1} a_k^2 \ge 0
+                        \end{equation*}
+                       So we have proved that: If for $n = n_0$, if $a_1 \in \mathbb{F}; ... ; a_n \in \mathbb{F}$, then $\sum\limits_{k=1}^n a_k^2 \ge 0$ then for $n = n_0 + 1$, if $a_1, ..., a_n \in \mathbb{F}$, then $\sum\limits_{k=1}^n a_k^2 \ge 0$.\\  
+                    \end{enumerate}
+                    Proving (i) and (ii) thus completes our proof by induction on $n$.
+                \end{proof}
+            \item We will prove (b) using induction on $n$.
+                \begin{proof}
+                    Assume $n \in \mathbb{N}$. We need to prove two claims.
+                    \begin{enumerate}
+                        \item We want to show that: If for $n = 1$, then if $a_1, ..., a_n \in \mathbb{F}$ and $\sum\limits_{k=1}^n a_k^2 = 0$, then $a_1 = a_2 = ... = a_n = 0$.\\
+                            Assume $n = 1$. Assume $a_1, ..., a_n \in \mathbb{F}$. So $a_1 \in \mathbb{F}$. Assume $\sum\limits_{k=1}^n a_k^2 = 0$, meaning
+                            \begin{equation*}
+                                \sum\limits_{k=1}^n a_k^2 = \sum\limits_{k=1}^1 a_k^2 = a_1^2 = 0\\
+                            \end{equation*}
+                            So $a_1^2 = 0$. By trichotomy, we can imply that $a_1 = 0$.\\
+                            So we have proved that for $n = 1$, then if $a_1, ..., a_n \in \mathbb{F}$ and $\sum\limits_{k=1}^n a_k^2 = 0$, then $a_1 = a_2 = ... = a_n = 0$.\\
+                        \item We also want to show that: If for $n = n_0$, if $a_1, ..., a_n \in \mathbb{F}$ and $\sum\limits_{k=1}^n a_k^2 = 0$, then $a_1 = a_2 = ... = a_n = 0$, then for $n = n_0 + 1$, if $a_1, ..., a_n \in \mathbb{F}$ and $\sum\limits_{k=1}^n a_k^2 = 0$, then $a_1 = a_2 = ... = a_n = 0$.\\
+                            Assume for $n = n_0$, $a_1, ..., a_n \in \mathbb{F}$. Assume $\sum\limits_{k=1}^n a_k^2 = 0$. By our inductive hypothesis, we have $a_1 = a_2 = ... = a_{n_0} = 0$. Assume $\exists a_{n_0 + 1} \in \mathbb{F}$. By trichotomy, exactly one of these holds: $a_{n_0 + 1} > 0, a_{n_0 + 1} = 0$, or $a_{n_0 + 1} < 0$. Whatever case that is, we know $a_{n_0 + 1}^2 \ge 0$. Now, we consider $\sum\limits_{k=1}^{n_0} a_k^2$.
+                            \begin{equation}
+                                \sum\limits_{k=1}^{n_0} a_k^2 + a_{n_0+1}^2 = \sum\limits_{k=1}^{n_0 + 1} a_k^2 \ge 0\\
+                            \end{equation}
+                    Our inductive hypothesis says that $\sum\limits_{k=1}^{n_0} a_k^2 = 0$.\\
+                    And we know $a_{n_0 + 1}^2 \ge 0$. So the equality of the equation (1) holds if and only if $a_{n_0 + 1}^2 = 0$. This means that it must be the case that $a_{n_0 + 1} = 0$.\\
+                    And so $a_1 = a_2 = ... = a_{n_0} = a_{n_0 + 1} = 0.$\\
+                    So we have proved that:  If for $n = 1$, then if $a_1, ..., a_n \in \mathbb{F}$ and $\sum\limits_{k=1}^n a_k^2 = 0$, then $a_1 = a_2 = ... = a_n = 0$.\\
+                    \end{enumerate}
+                    Proving both claim (i) and (ii) completes our proof by induction on $n$. 
+                \end{proof}
+        \end{enumerate}
+    \item[Problem 5.7:] Let $\mathbb{F}$ be any ordered field with $a, b, c \in \mathbb{F}$, prove that $\vert a - c \vert \le \vert a - b \vert + \vert c - b \vert$.
+        \begin{proof}
+            Assume $a, b, c \in \mathbb{F}$. To prove the above statement, we need to prove a lemma.
+            \begin{lemma}
+                Let $\mathbb{F}$ be any ordered field with $a, b \in \mathbb{F}$: $|a - b| = |b - a|$.
+                \begin{proof}
+                    Assume $a, b \in \mathbb{F}$. By the definition of absolute value we have
+                    \begin{equation*}
+                        |a - b| = \left\{
+                            \begin{array}{rl}
+                                - (a - b) = b - a & \text{if } (a - b) < 0 \Leftrightarrow a < b,\\
+                                0 & \text{if } a - b = 0 \Leftrightarrow a = b,\\
+                                (a - b) & \text{if } a - b > 0 \Leftrightarrow a > b.
+                            \end{array} \right.
+                    \end{equation*}
+                    And
+                    \begin{equation*}
+                        |b - a| = \left\{
+                            \begin{array}{rl}
+                                - (b - a) = a - b & \text{if } (b - a) < 0 \Leftrightarrow a > b,\\
+                                0 & \text{if } b - a = 0 \Leftrightarrow a = b,\\
+                                (b - a) & \text{if } b - a > 0 \Leftrightarrow a < b.
+                            \end{array} \right.
+                    \end{equation*}
+                    So we can conclude that $|a - b| = |b - a|$ for $a, b \in \mathbb{F}$.
+                \end{proof}
+            \end{lemma}
+            Now we are ready to prove our main statement. Consider $|a - b| + |c - b|$
+            \begin{gather*}
+                |a - b| + |c - b| = |a - b| + |b - c| \text{ by lemma 0.1}\\
+                |a - b| + |b - c| \ge | (a - b) + (b - c) | \text{ by the Triangle Inequality} \\
+                |a - b| + |b - c| \ge | a - b + b - c |\\
+                |a - b| + |b - c| \ge | a - c|\\
+                \text{So } |a - b| + |c - b| \ge | a - c |
+            \end{gather*}
+        \end{proof}
+    \item[Problem 5.8a:] Let $\mathbb{F}$ be any ordered field. Prove that if $a, b \in \mathbb{F}$ so that $a < b$, then $\forall n \in \mathbb{N}$, there are numbers $x_i \in \mathbb{F}$ so that $a < x_1 < x_2 < ... < x_n < b$.
+        \begin{proof}
+            Assume $a, b \in \mathbb{F}$ so that $a < b$. Since we have $n \in \mathbb{N}$, we can attempt to prove the above proposition using a proof by induction on $n$. We need to prove two claims.
+            \begin{enumerate}
+                \item[]{(i)} We want to prove that: If for $n = 1$, then $a < x_1 < x_2 < ... < x_n < b$.\\
+                    Assume $n = 1$. Since $a, b \in \mathbb{F}$ and $a < b$, by the Average theorem, $\exists x_1 \in \mathbb{F}$ such that $a < x_1 < b$. And so for $n = 1$, $a < x_1 < x_2 < .. < x_n < b$.
+                \item[]{(ii)} We also want to prove: If for $n = n_0$, $a < x_1 < x_2 < ... < x_n < b$, then for $n = n_0 + 1$, $a < x_1 < x_2 < ... < x_n < b$.\\
+                    Assume for $n = n_0$, $a < x_1 < x_2 < ... < x_n < b$, meaning
+                    \begin{equation}
+                        a < x_1 < x_2 < ... < x_{n_0 - 1} < x_{n_0} < b \text{ where } x_1, x_2, ..., x_{n_0} \in \mathbb{F}
+                    \end{equation}
+                    From (1) we know $x_{n_0} < b$. Again, by the Average theorem, $\exists x_{n_0 + 1} \in \mathbb{F}$ such that $x_{n_0} < x_{n_0 + 1} < b$.
+                    In conclusion, we know
+                    \begin{equation*}
+                        a < x_1 < x_2 < ... < x_{n_0 - 1} < x_{n_0} < x_{n_0 + 1} < b,
+                    \end{equation*}
+                    which is what we want to prove.\\
+            \end{enumerate}
+            Proving both claim (i) and (ii) thus completes our proof by induction on $n$.
+        \end{proof}
+\end{enumerate}
+\end{document}

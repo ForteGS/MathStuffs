@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW3}
+\newtheorem{claim}{Claim}
+\begin{document}
+% Generates the title
+\maketitle
+\begin{enumerate}
+    \item[Problem 2.4:] Prove: $\forall n, m \in \mathbb{N}$, with $n < m \sum\limits_{k=n}^{m} k = \frac{(n+m)(m-n+1)}{2}$
+        \begin{enumerate}
+            \item Use previously proved theorems.
+            \item[] \emph{Proof.} Assume $n, m \in \mathbb{N}$ with $n < m$.
+                In class we have proven the claim
+                \begin{claim}
+                    $\forall l \in \mathbb{N}$, $\sum\limits_{k=1}^l k = \frac{l(l+1)}{2}$
+                \end{claim}
+                Claim 1 basically says
+                \begin{equation*}
+                    \sum\limits_{k=1}^l k = 1 + 2 + ... + l - 1 + l = \frac{l(l+1)}{2}
+                \end{equation*}
+                By the definition of summation, consider
+                \begin{align*}
+                    \sum\limits_{k=n}^m k &= n + n + 1 + n + 2 + ... + m - 1 + m\\
+                    &= (1 + 2 + ... + m - 1 + m) - (1 + 2 + ... + n - 1)\\
+                    &= \sum\limits_{k=1}^m k - \sum\limits_{k=1}^{n-1} k\\
+                    &= \frac{m(m+1)}{2} - \frac{(n-1)n}{2}\\
+                    &= \frac{m^2 + m - n^2 + n}{2}\\
+                    &= \frac{(m - n)(m + n) + (m + n)}{2}\\
+                    &= \frac{(m + n)(m - n  + 1)}{2} \qed
+                \end{align*}
+
+            \item Use induction on m.
+            \item[] \emph{Proof.} Assume $n, m \in \mathbb{N}$ and $n < m$.
+                We will prove the above statement using a proof by induction on $m$.
+                Since $n, m \in \mathbb{N}$ and $n < m$, it can be implied that $m \ge 2$. We will need to prove two claims.
+                \begin{enumerate}
+                    \item If $m = 2$, then $\forall n < m \sum\limits_{k=n}^m k = \frac{(n+m)(m-n+1)}{2}$
+                    \item[] \emph{Proof.} Assume $m = 2$, since $n < m, n = 1$. We have
+                        \begin{gather*}
+                            \sum\limits_{k=n}^m k = 1 + 2 = 3 \text{ and } \\
+                            \frac{(n + m)(m-n+1)}{2} = \frac{(1 + 2)(2 - 1 + 1)}{2} = 3
+                        \end{gather*}
+                    \item If for $m = m_0$, $\forall n < m \sum\limits_{k=n}^m k = \frac{(n+m)(m-n+1)}{2}$, then for $m = m_0 + 1$, $\forall n < m \sum\limits_{k=n}^m k = \frac{(n+m)(m-n+1)}{2}$
+                    \item[] \emph{Proof.} Assume $m = m_0$, $\forall n < m \sum\limits_{k=n}^m k = \frac{(m+n)(m-n+1)}{2}$, meaning
+                        \begin{gather*}
+                            \sum\limits_{k=n}^{m_0} k = \frac{(m_0+n)(m_0 - n + 1)}{2}\\
+                            \sum\limits_{k=n}^{m_0} k + m_0 + 1 = \frac{(m_0+n)(m_0-n+1)}{2} + m_0 + 1\\
+                        \end{gather*}
+                        \begin{align*}
+                            \sum\limits_{k=n}^{m_0 + 1} k &= \frac{(m_0+n)(m_0-n+1)}{2} + m_0 + 1\\
+                            & = \frac{(m_0 + n)(m_0 - n + 1) + 2(m_0 + 1)}{2}\\
+                            & = \frac{m_0^2 - m_0n + m_0 + nm_0 - n^2 + n + 2m_0 + 2}{2}\\
+                            & = \frac{m_0^2 - m_0n + m_0 + nm_0 - n^2 + 2n - n + 2m_0 + 2}{2}\\
+                            & = \frac{m_0^2 + m_0n + m_0 - nm_0 - n^2 + - n + 2n + 2m_0 + 2}{2}\\
+                            & = \frac{m_0(m_0 + n + 1) - n(m_0 + n + 1) + 2(n + m_0 + 1)}{2}\\
+                            & = \frac{(m_0 + n + 1)(m_0 - n + 2)}{2}\\
+                            & = \frac{((m_0 + 1) + n)((m_0 + 1) -n + 1)}{2}
+                        \end{align*}
+                        So we have proved if for $m = m_0$, $\forall n < m \sum\limits_{k=n}^m k = \frac{(n+m)(m-n+1)}{2}$ then for $m = m_0 + 1$, $\forall n < m \sum\limits_{k=n}^m k = \frac{(n+m)(m-n+1)}{2}$.
+                \end{enumerate}
+                Proving claim (i) and (ii) completes our proof by induction on $m$. \qed
+        \end{enumerate}
+    \item[Problem 2.10:] Prove that the sum of two odd integers is even.
+    \item[] \emph{Proof.} Let $n, m \in \mathbb{Z}$. Assume $n ,m$ are odd numbers, meaning
+        \begin{gather*}
+            \exists k \in \mathbb{Z} \text{ s. t } n = 2k + 1\\
+            \exists l \in \mathbb{Z} \text{ s. t } m = 2l + 1\\
+        \end{gather*}
+        Consider the expression $n + m$
+        \begin{align*}
+            n + m &= (2k + 1) + (2l + 1)\\
+            & = 2k + 2l + 2\\
+            & = 2(k + l + 1)
+        \end{align*}
+        We know $(k + l + 1) \in \mathbb{Z}$ and so the sum of two odd integers is even. \qed
+    \item[Problem 2.13:] Prove that if $n, m \in \mathbb{Z}$ and $nm$ is even, then either $n$ is even or $m$ is even.
+    \item[] \emph{Proof.} Assume $n, m \in \mathbb{Z} $. We will prove the contrapositive of this statement: If both $n$ and $m$ are odd, then $nm$ is odd.
+        Assume both $n$ and $m$ are odd natural numbers, meaning
+        \begin{gather*}
+            \exists k \in \mathbb{Z} \text{ s. t } n = 2k + 1\\
+            \exists l \in \mathbb{Z} \text{ s. t } m = 2l + 1\\
+        \end{gather*}
+        We consider the product $nm$
+        \begin{align*}
+            nm &= (2k + 1)(2l + 1)\\
+            & = 4kl + 2l + 2k + 1\\
+            & = 2(2kl + l + k) + 1
+        \end{align*}
+        Since $k, l \in \mathbb{Z}$, we know $(2kl + l + k) \in \mathbb{N}$.
+        This completes the proof by contraposition. \qed
+\end{enumerate}
+
+\end{document}

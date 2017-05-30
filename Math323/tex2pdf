@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+TEX=$1
+PDF=${TEX//.tex/.dvi}
+
+latex $1
+dvipdf $PDF

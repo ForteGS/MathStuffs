@@ -1,0 +1,105 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW4}
+\newtheorem{claim}{Claim}
+\begin{document}
+% Generates the title
+\maketitle
+\begin{enumerate}
+    \item[Problem 2.14:] Prove the following: Let $P(n)$ be a statement that is either true or false (but not both) for each $n \in \mathbb{N}$. Let $m \in \mathbb{N}$. If the following two statements hold: If $n = m$, then $P(n)$ is true; and if for $n = n_0, P(n)$ is true, then for $n = n_0 + 1, P(n)$ is true, then for all $n \in \mathbb{N}$ where $n \ge m, P(n)$ is true.
+    \item[] \emph{Proof.} Let $P(n)$ be a statement that is either true or false but not both for each $n \in \mathbb{N}$. Assume $m \in \mathbb{N}$ and $n \ge m$. Assume
+        \begin{enumerate}
+            \item If $n = m$, then $P(n)$ is true.
+            \item If for $n = n_0$, $P(n)$ is true, then for $n = n_0 + 1, P(n)$ is true.
+        \end{enumerate}
+
+        Let A be the set such that
+        \begin{equation}
+            A = \{k \in \mathbb{N} \mid P(k) \text{ is false and } k \ge m\}
+        \end{equation}
+        We consider two cases for this set A.
+        \begin{itemize}
+            \item Case 1: A is not empty.\\
+                Assume by way of contradtiction A is not empty. Since set A is a set of natural numbers, by the Well Ordering principle, it has a minimum. Call it $m_A$.
+                By definition, $m_A$ has two properties:
+                \begin{itemize}
+                    \item[-] $m_A \in A$.
+                    \item[-] If $s \in A$, then $s \ge m_A.$
+                \end{itemize}
+                Since $m_A \in A$, we know $m_a \ge m$. By our assumption $(a)$, $P(m)$ is true and so $m \notin A$.
+                And so now we know $m_A > m$, meaning $\exists s \in \mathbb{N} \text{ s.t } s + m = m_A$ and so $k \ge 1$.\\
+                Again, $P(m)$ is true. By our assumption (b), $P(m+1)$ is also true.\\
+                Because $P(m+1)$ is true, $P(m+2)$ is also true.
+                Without loss of generality, $P(m+s$) is also true. But this means that $m_A \notin A$ and this thus contradicts our assumption about the set A having a minimum. So the set of natural numbers A must be empty.
+            \item Case 2: A is empty.\\
+                A is empty meaning $n \notin \{k \in \mathbb{N} \mid P(k) \text { is false and } k \ge m\}$\\
+                By our assumptions,
+                \begin{itemize}
+                    \item $n \ge m$
+                    \item If $n = m$, then $P(n)$ is true.
+                    \item If for $n = n_0$, $P(n)$ is true, then for $n = n_0 + 1, P(n)$ is true.\\
+                \end{itemize}
+                We can conclude that $\forall n \in \mathbb{N}$ where $n \ge m, P(n)$ is true. \qed
+        \end{itemize}
+
+    \item[Problem 2.7:] Look up official mathematical definition of "factorial."
+        \begin{enumerate}
+            \item Prove: $\forall n \in \mathbb{N}$ large enough, $n! \ge n + 200$.
+            \item Prove: $\forall n \in \mathbb{N}$ large enough, $n! \ge 2^n$.
+        \end{enumerate}
+    \item[] \emph{Proof.} Assume $n \in \mathbb{N}$. Since there is no specific threshold for $n$. We will prove both (a) and (b) by picking thresholds for $n$.
+        \begin{enumerate}
+            \item We will prove the following statement: $\forall n \in \mathbb{N}$ and $n \ge 6$, $n! \ge n + 200$ using induction on $n$. Assume $n \in \mathbb{N}$ and $n \ge 6$, we will need to prove two claims.
+                \begin{enumerate}
+                    \item If $n = 6$, then $n! \ge n + 200$.
+                    \item[] \emph{Proof of claim (i).}  Assume $n = 6$. By the definition of factorial,
+                        \begin{gather*}
+                            n! = 6! = 1.2.3.4.5.6 = 720. \text{ and }
+                            n + 200 = 6 + 200 = 206.
+                        \end{gather*}
+                        So for $n = 6$, $n! \ge n + 200$.
+                    \item If for $n = n_0$, $n! \ge n + 200$, then for $n = n_0 + 1, n! \ge n + 200$.
+                    \item[] \emph{Proof of claim (ii).} Assume for $n = n_0$, $n \ge n + 200$. Our inductive hypothesis means
+                        \begin{gather*}
+                            n_0! \ge n_0 + 200\\
+                            n_0!(n_0 + 1) \ge (n_0 + 200)(n_0 + 1)\\
+                            (n_0 + 1)! \ge (n_0 + 200)(n_0 + 1)\\
+                            (n_0 + 1)! \ge n_0^2 + 201n_0 + 200\\
+                            (n_0 + 1)! \ge n_0^2 - 1 + 200n_0 + n_0 + 1 + 200 > n_0 + 1 + 200\\
+                            (n_0 + 1)! \ge n_0 + 1 + 200
+                        \end{gather*}
+                        We can make the two last claims because of our assumption $n \ge 6$ and so we know $n_0^2 - 1 + 200n_0 > 1$. So we have proved that for $n = n_0 + 1$, $n! \ge n + 200$.
+                \end{enumerate}
+                Proving claim (i) and (ii) thus completes our proof by induction on $n$.\qed
+            \item We will prove the following statement: $\forall n \in \mathbb{N}$ and $n \ge 4$, $n! \ge 2^n$ using induction on $n$. Assume $n \in \mathbb{N}$ and $n \ge 4$, we will prove two claims.
+                \begin{enumerate}
+                    \item If $n = 4$, then $n! \ge 2^n$.
+                    \item[] \emph{Proof of claim (i).} Assume $n = 4$. By the definition of factorial,
+                        \begin{gather*}
+                            n! = 4! = 1.2.3.4 = 24. \text{ and }
+                            2^n = 2^4 = 16.
+                        \end{gather*}
+                        So for $n = 4$, $n! \ge 2^n$.
+                    \item If for $n = n_0$, $n! \ge 2^n$, then for $n = n_0 + 1$, $n! \ge 2^n$.
+                    \item[] \emph{Proof of claim (ii).} Assume for $n = n_0$, $n! \ge 2^n$, we have
+                        \begin{gather*}
+                            n_0! \ge 2^{n_0}\\
+                            n_0!(n_0 + 1) \ge 2^{n_0}(n_0 + 1)\\
+                            (n_0 + 1)! \ge 2^{n_0}(n_0 + 1)\\
+                            (n_0 + 1)! \ge 2^{n_0}n_0 + 2^{n_0} \label{one} \\
+                        \end{gather*}
+                        We know $n_0 \ge 4$ by our initial assumption. So 
+                        \begin{gather*}
+                            2^{n_0}n_0 > 2^{n_0}.2\\
+                            2^{n_0}n_0 > 2^{n_0 + 1}\\
+                            2^{n_0}n_0 + 2^{n_0} > 2^{n_0 + 1}
+                        \end{gather*}
+                        Combining (1) and (2):$(n_0 + 1)! \ge 2^{n_0 + 1}$. 
+                \end{enumerate}
+                Proving claim (i) and (ii) thus completes our proof by induction on $n$.\qed
+        \end{enumerate}
+\end{enumerate}
+
+\end{document}

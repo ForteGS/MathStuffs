@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW10}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\begin{document}
+% Generates the title
+\maketitle
+\begin{enumerate} 
+    \item[Problem 6.6:] Let $a, b \in \mathbb{R}$ with $a < b$. Prove $\exists s \notin \mathbb{Q}$ such that $a < s < b$.
+        \begin{proof}
+            Assume $a, b \in \mathbb{R}$ with $a < b$. Assume $c, d \in \mathbb{R}$ so that $c = \frac{a}{\sqrt{2}}$ and $d = \frac{b}{\sqrt{2}}$. Since $a < b$, $c < d$. By the Density theorem, we know $\exists q \in \mathbb{Q}$ so that $c < q < d$. So we have
+            \begin{gather*}
+                c < q < d\\
+                \frac{a}{\sqrt{2}} < q < \frac{b}{\sqrt{2}}\\
+                a < q\sqrt{2} < b
+            \end{gather*}
+            But $q\sqrt{2} \in \mathbb{R}$. So for $a, b \in \mathbb{R}$, $\exists s \notin \mathbb{Q}$ such that $a < s < b$.
+        \end{proof}
+    \item[Problem 6.7:] Prove if $a, b \in \mathbb{R}$, with $a < b$, then $\forall n \in \mathbb{N}$, there are numbers $x_1, x_2, ..., x_{n-1}, x_n \in \mathbb{Q}$ all different so that for all $i = 1, 2, 3, ..., n$, we have $a < x_i < b$.
+        \begin{proof}
+            Assume $a, b \in \mathbb{R}$ with $a < b$. We will prove the above statement using induction on $n$. We will need to prove two claims.
+            \begin{enumerate}
+                \item[1.] We want to show: If $n = 1$, then if $\exists x_1, x_2, ..., x_n \in \mathbb{Q}$ all different so that for all $i = 1, 2, 3, ..., n$, we have $a < x_i < b$.\\
+                    Assume $n = 1$. Assume $\exists x_1, ..., x_n \in \mathbb{Q}$ all different. Since $n = 1$, $\exists x_1 \in \mathbb{Q}$. Since $a, b \in \mathbb{R}$, by the Density theorem, $\exists q \in \mathbb{Q}$ so that $a < q < b$. Let $q = x_1$ and so $a < x_1 < b$.\\
+                    So we have shown that for $n = 1$, if $\exists x_1, x_2, ..., x_n \in \mathbb{Q}$ all different so that for all $i = 1, 2, 3, ..., n$, we have $a < x_i < b$.
+                \item[2.] We also want to show: If for $n = n_0$, if $\exists x_1, x_2, ..., x_n \in \mathbb{Q}$ all different so that for all $i = 1, 2, 3, ..., n$, we have $a < x_i < b$, then for $n = n_0 + 1$, if $\exists x_1, x_2, ..., x_n \in \mathbb{Q}$ all different so that for all $i = 1, 2, 3, ..., n$, we have $a < x_i < b$.\\
+                    Assume $n = n_0$. Assume $\exists x_1, x_2, ..., x_n \in \mathbb{Q}$ so that for all $i = 1, 2, 3, ..., n$, we have $a < x_i < b$. Our inductive hypothesis says $\exists x_1, x_2, ..., x_{n_0} \in \mathbb{Q}$ so that for all $i = 1, 2, 3, ..., n$, we have $a < x_i < b$. Consider $a < x_{n_0} < b$. Since $x_{n_0} \in \mathbb{Q}$, it has to be in $\mathbb{R}$. So $x_{n_0} \in \mathbb{R}$. We also know $b \in \mathbb{R}$ and $b > x_{n_0}$ by our inductive hypothesis.
+                    So then by the Density theorem, $\exists x_{n_0 + 1} \in \mathbb{Q}$ so that $x_{n_0} < x_{n_0 + 1} < b$. So then for all $i = 1, 2, ..., n_0, n_0 + 1$, we have $a < x_i < b$.
+            \end{enumerate}
+            Proving claim (1) and claim (2) thus completes the proof by induction on $n$.
+        \end{proof}
+    \item[] In problems 8-13, consider the sets:
+    \begin{gather*}
+        A = \{ r \in \mathbb{Z} \mid 5 < 2r\}\\
+        B = \{ r \in \mathbb{Z} \mid 5 \le 2r\}\\
+        C = \{ r \in \mathbb{Q} \mid 5 < r\}\\
+        D = \{ r \in \mathbb{Q} \mid 5 \le 2r\}\\
+        E = \{ r \in \mathbb{R} \mid 5 < 2r\}\\
+        F = \{ r \in \mathbb{R} \mid 5 \le 2r\}
+    \end{gather*}
+    \item[Problem 6.8:] For which of the sets $A$ through $F$ is there a rational number that is a lower bound on the set?
+    \item[] \emph{Solution. } A, B, C, D, E, F.
+    \item[Problem 6.9:] For which of the sets $A$ through $F$ is there a rational number that is a greatest lower bound on the set?
+    \item[] \emph{Solution. } A, B, D, F.
+    \item[Problem 6.10:] For which of the sets $A$ through $F$ is there a rational number that is a minimum of the set?
+    \item[] \emph{Solution. } A, B, D, F.
+    \item[Problem 6.11:] For which of the sets $A$ through $F$ is there a real number that is a lower bound on the set?
+    \item[] \emph{Solution. } A, B, C, D, E, F.
+    \item[Problem 6.12:] For which of the sets $A$ through $F$ is there a real number that is a greatest lower bound on the set?
+    \item[] \emph{Solution. } A, B, C, D, E, F. 
+    \item[Problem 6.13:] For which of the sets $A$ through $F$ is there a real number that is a minimum of the set?
+    \item[] \emph{Solution. } A, B, D, F.
+    \item[] In problem 14-19, consider the sets:
+    \begin{gather*}
+        A' = \{ r \in \mathbb{Z} \mid 5 < 2r^3\}\\
+        B' = \{ r \in \mathbb{Z} \mid 5 \le 2r^3\}\\
+        C' = \{ r \in \mathbb{Q} \mid 5 < r^3\}\\
+        D' = \{ r \in \mathbb{Q} \mid 5 \le 2r^3\}\\
+        E' = \{ r \in \mathbb{R} \mid 5 < 2r^3\}\\
+        F' = \{ r \in \mathbb{R} \mid 5 \le 2r^3\}
+    \end{gather*}
+    \item[Problem 6.14:] For which of the sets $A'$ through $F'$ is there a rational number that is a lower bound on the set?
+    \item[] \emph{Solution.} A', B', C', D', E', F'
+    \item[Problem 6.15:] For which of the sets $A'$ through $F'$ is there a rational number that is a greatest lower bound on the set?
+    \item[] \emph{Solution.} A', B',
+    \item[Problem 6.16:] For which of the sets $A'$ through $F'$ is there a rational number that is a minimum of the set?
+    \item[] \emph{Solution.} A', B',
+    \item[Problem 6.17:] For which of the sets $A'$ through $F'$ is there a real number that is a lower bound on the set?
+    \item[] \emph{Solution.} A', B', C', D', E', F'
+    \item[Problem 6.18:] For which of the sets $A'$ through $F'$ is there a real number that is a greatest lower bound on the set?
+    \item[] \emph{Solution.} A', B', C', D', E', F'
+    \item[Problem 6.19:] For which of the sets $A'$ through $F'$ is there a real number that is a minimum of the set?
+    \item[] \emph{Solution.} A', B', D', F'
+\end{enumerate}
+\end{document}

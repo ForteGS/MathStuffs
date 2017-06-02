@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm, graphicx}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\begin{document}
+% Generates the title
+\begin{enumerate}
+    \item[Problem 5.2b:] Let $\mathbb{F}$ be an ordered field. Prove: For all $n \in \mathbb{N}$, if $a_1 \in \mathbb{F}; a_2 \in \mathbb{F}; ... a_n \in \mathbb{F}$, and $\sum\limits_{k=1}^n a_k^2 = 0$, then $a_1 = a_2 = a_3 = ... = a_n = 0$.
+            \begin{proof}
+                Assume $n \in \mathbb{N}$. We need to prove two claims.
+                \begin{enumerate}
+                    \item[i.] We want to show that: If for $n = 1$, then if $a_1, ..., a_n \in \mathbb{F}$ and $\sum\limits_{k=1}^n a_k^2 = 0$, then $a_1 = a_2 = ... = a_n = 0$.\\
+                        Assume $n = 1$. Assume $a_1, ..., a_n \in \mathbb{F}$. So $a_1 \in \mathbb{F}$. Assume $\sum\limits_{k=1}^n a_k^2 = 0$, meaning
+                        \begin{equation*}
+                            \sum\limits_{k=1}^n a_k^2 = \sum\limits_{k=1}^1 a_k^2 = a_1^2 = 0\\
+                        \end{equation*}
+                        So $a_1^2 = 0$. By trichotomy, we can imply that $a_1 = 0$.\\
+                        So we have proved that for $n = 1$, then if $a_1, ..., a_n \in \mathbb{F}$ and $\sum\limits_{k=1}^n a_k^2 = 0$, then $a_1 = a_2 = ... = a_n = 0$.\\
+                    \item[ii.] We also want to show that: If for $n = n_0$, if $a_1, ..., a_n \in \mathbb{F}$ and $\sum\limits_{k=1}^n a_k^2 = 0$, then $a_1 = a_2 = ... = a_n = 0$, then for $n = n_0 + 1$, if $a_1, ..., a_n \in \mathbb{F}$ and $\sum\limits_{k=1}^n a_k^2 = 0$, then $a_1 = a_2 = ... = a_n = 0$.\\
+                        Assume for $n = n_0$, $a_1, ..., a_{n_0} \in \mathbb{F}$ and $\sum\limits_{k=1}^n a_k^2 = 0$ then $a_1 = a_2 = ... = a_{n_0} = 0$. We want to prove that for $n = n_0 + 1$, if $b_1, b_2, ..., b_n \in \mathbb{F}$ and $\sum\limits_{k=1}^n b_k^2 = 0$ then $b_1 = b_2 = ... = b_n = 0$.\\
+                        Assume $b_1, b_2, ... b_{n_0 + 1} \in \mathbb{F}$ and $\sum\limits_{k=1}^{n_0 + 1} b_k^2 = 0$. We let $a_1 = b_1 = a_2 = b_2 = ...= a_{n_0} = b_{n_0} = 0$. And so we have $\sum\limits_{k=1}^{n_0} b_k^2 = 0$. Consider
+                        \begin{align*}
+                            \sum\limits_{k=1}^{n_0} b_k^2 + b_{n_0 + 1}^2 = b_{n_0 + 1}^2\\
+                            \sum\limits_{k=1}^{n_0 + 1} b_k^2 = b_{n_0 + 1}^2
+                        \end{align*}
+                But our assumption says $\sum\limits_{k=1}^{n_0 + 1} b_k^2 = 0$. So $b_{n_0 + 1}^2 = 0$. So $b_{n_0 + 1} = 0$.
+                And so we have $b_1 = b_2 = ... = b_{n_0} = b_{n_0 + 1} = 0$.\\
+                \end{enumerate}
+                Proving both claim (i) and (ii) completes our proof by induction on $n$. 
+            \end{proof}
+\end{enumerate}
+\centering
+\includegraphics[scale=0.5]{34211278}
+\end{document}

@@ -1,0 +1,253 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW16}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\begin{document}
+% Generates the title
+\maketitle
+\begin{enumerate}
+    \item[Problem 10.14:] Consider the relation on $\mathbb{Z}$ given by $a \bumpeq b$ if and only if $a - b$ is divisible by $7$.
+        \begin{enumerate}
+            \item Prove that this is an equivalence relation.
+            \begin{proof}
+                We will need to prove 3 properties of equivalence relation.
+                \begin{enumerate}
+                    \item[1.] $\bumpeq$ is reflexive.\\
+                        Assume $z \in \mathbb{Z}$. We want to show $a \bumpeq a$. In other words, we need to show $a - a$ is divisible by $7$. But $a - a = 0$ and $0 = 0 . 7$. So $a - a$ is divisible by $7$. Thus $\bumpeq$ is reflexive.
+                    \item[2.] $\bumpeq$ is symmetric.\\
+                        We want to show: If $a, b \in \mathbb{Z}$ and $a \bumpeq b$, then $b \bumpeq a$.\\
+                        Assume $a \bumpeq b$. So $a - b$ is divisible by $7$. So then $\exists q \in \mathbb{Z} \text{ s.t } a - b = 7q$. Since $a - b = 7q$, $b - a = -7q$. Since $q \in \mathbb{Z}$, $(-q) \in \mathbb{Z}$. So then $b - a$ is divisible by $7$. Thus $\bumpeq$ is symmetric.
+                    \item[3.] $\bumpeq$ is transitive.\\
+                        We want to show: If $a, b, \text{ and } c \in \mathbb{Z}$ and $a \bumpeq b$ and $b \bumpeq c$, then $a \bumpeq c$.\\
+                        Assume $a, b, \text{ and } c \in \mathbb{Z}$ and $a \bumpeq b$ and $b \bumpeq c$. Respectively this means
+                        \begin{gather*}
+                            \exists q_1 \in \mathbb{Z} \text{ s.t } a - b = 7q_1\\
+                            \exists q_2 \in \mathbb{Z} \text{ s.t } b - c = 7q_2
+                        \end{gather*}
+                        Consider $(a - b) + (b - c)$.
+                        \begin{gather*}
+                            a - b + b - c = 7q_1 + 7q_2\\
+                            a - c = 7q_1 + 7q_2\\
+                            a - c = 7(q_1 + q_2)
+                        \end{gather*}
+                        Since $q_1$ and $q_2 \in \mathbb{Z}$, $q_1 + q_2 \in \mathbb{Z}$. So then $a - c$ is divisible by $7$ and thus $a \bumpeq c$. $\bumpeq$ is transitive.
+                \end{enumerate}
+            \end{proof}
+            \item Describe $[3]$ for this relation.
+            \item[] \emph{Solution. } $[3] = \{ ..., 23, 17, 10, 3, -4, -11, -19, ...\}$
+            \item Find $\mathbb{Z}/_{\bumpeq}$.
+            \item[] \emph{Solution. } $\mathbb{Z}/_{\bumpeq} = \{ [0], [1], [2], [3], [4], [5], [6] \}$.
+            \item Prove that an addition on $\mathbb{Z}/_{\bumpeq}$ defined by $[n] + [m] = [n + m]$ is well defined.
+            \begin{proof}
+                Assume $n, m, a, b \in \mathbb{Z}$ so that $[n] = [a]$ and $[m] = [b]$. We want to show: $[n] + [m] = [a] + [b]$. Since $[n] = [a]$ and $[m] = [b]$, we have
+                \begin{gather*}
+                    \exists k_1 \in \mathbb{Z} \text{ s.t } n = 7k_1 + a\\
+                    \exists k_2 \in \mathbb{Z} \text{ s.t } m = 7k_2 + b\\
+                    n + m = 7k_1 + a + 7k_2 + b\\
+                    n + m = 7(k_1 + k_2) + (a + b)\\
+                    (n + m) - (a + b) = 7(k_1 + k_2)\\
+                    (n + m) \bumpeq (a + b) \text{ since } k_1 + k_2 \in \mathbb{Z}.\\
+                    [n + m] = [a + b]
+                \end{gather*}
+                But we defined $[n] + [m] = [n + m]$ and $[n + m] = [a + b] = [a] + [b]$. Thus $[n] + [m] = [a] + [b]$.
+            \end{proof}
+        \end{enumerate}
+    \item[Problem 10.16:] Let $S = \mathbb{Z} \times \mathbb{N}$. Define a relation on $S$ by $(n, m) \equiv (p, q)$ if $nq = mp$.
+        \begin{enumerate}
+            \item Prove that this is an equivalence relation.
+            \begin{proof}
+                We need to prove 3 properties.
+                \begin{enumerate}
+                    \item $\equiv$ is reflexive.
+                    \item[] Assume $n \in \mathbb{Z}$ and $m \in \mathbb{N}$. We want to show that $(n, m) \equiv (n, m)$. Since $nm = mn$ in $\mathbb{Z}$ by commutativity, $(n, m) \equiv (n, m)$.
+                    \item $\equiv$ is symmetric.
+                    \item[] Assume $m, p \in \mathbb{Z}$ and $n, q \in \mathbb{N}$. We want to show that: If $(m, n) \equiv (p, q), \text{ then } (p, q) \equiv (m, n)$.\\
+                        Assume $(m, n) \equiv (p, q)$. Then $mq = np$ in $\mathbb{Z}$. By commutativity in $\mathbb{Z}$, $pn = qm$ in $\mathbb{Z}$. This means $(p, q) \equiv (m, n)$.
+                    \item $\equiv$ is transitive.
+                    \item[] Assume $m, n, p \in \mathbb{Z}$ and $q, r, s \in \mathbb{N}$. We want to show that: If $(m, q) \equiv (n, r)$ and $(n, r) \equiv (p, s)$, then $(m, q) \equiv (p, s)$.\\
+                        Assume $(m, q) \equiv (n, r)$ and $(n, r) \equiv (p, s)$. Respectively these means
+                        \begin{gather*}
+                            mr = qn \text{ in } \mathbb{Z}\\
+                            ns = rp \text{ in } \mathbb{Z}
+                        \end{gather*}
+                        Consider $mr = qn$.
+                        \begin{gather*}
+                            mrs = qns \text{ since we know } s \in \mathbb{N}\\
+                            mrs = qrp \text{ because } ns = rp\\
+                            ms = qp \text{ since we know } r \in \mathbb{N}
+                        \end{gather*}
+                        This means $(m, q) \equiv (p, s)$.
+                \end{enumerate}
+            \end{proof}
+            \item The set $S/_{\equiv}$ has a much better and more familiar name, what is it?
+            \item[] \emph{Answer. } Equivalence of two fractions.
+            \item Define an addition on $S/_{\equiv}$ by $(n, m) \oplus (p, q)$ = $(nq + mp, mq)$. Prove it is well defined.
+            \begin{proof}
+                Let $n, p, a, b \in \mathbb{Z}$ and $m, q, c, d \in \mathbb{N}$ so that $(n, m) = (a, c)$ and $(p, q) = (b, d)$. We want to show that $(n, m) \oplus (p, q) = (a, c) \oplus (b, d)$. Since $(n, m) = (a, c)$, $nc = ma$ in $\mathbb{Z}$. Since $(p, q) = (b, d)$, $pd = qb$ in $\mathbb{Z}$. Consider
+                \begin{gather*}
+                    nc = ma\\
+                    ncd = mad \text{ since } d \in \mathbb{N}\\
+                    ncdq = madq \text{ since } q \in \mathbb{N}\\
+                \end{gather*}
+                And
+                \begin{gather*}
+                    pd = qb\\
+                    mpd = mqb \text{ since } m \in \mathbb{N}\\
+                    cmpd = cmqp \text{ since } c \in \mathbb{N}
+                \end{gather*}
+                Now consider
+                \begin{gather*}
+                    ncdq + cmpd = madq + cmpd\\
+                    nqcd + mpcd = mqad + mqcp\\
+                    (nq + mp)cd = mq(ad + bc)\\
+                    (nq + mp, mq) = (ad + bc, cd)\\
+                    (n, m) \oplus (p, q) = (a, c) \oplus (b, d).
+                \end{gather*}
+            \end{proof}
+        \item We cannot define an addition on $S/_{\equiv}$ by $(n, m) \boxplus (p, q) = (n + p, m + q)$. Why not? (In the book it was $(m + p, m + q)$ but I believe it's a typo)
+            \item[] \emph{Answer. } Because the operation is not well defined. (Do I really need to prove this?)
+            \begin{proof}
+                Assume BWOC, the addition operation on $S/_{\equiv}$ by $(n, m) \boxplus (p, q) = (n + p, m + q)$ is well defined. Mathematically speaking, if $(n, m) = (a, b)$ and $(p, q) = (c, d)$, then $(n, m) \boxplus (p, q) = (a, b) \boxplus (c, d)$. We know these:
+                \begin{itemize}
+                    \item Since $(n, m) = (a, b)$, $nb = ma$ in $\mathbb{Z}$. So then $n = \frac{ma}{b}$ in $\mathbb{Q}$ because $b \in \mathbb{N}$.
+                    \item Since $(p, q) = (c, d), pd = qc$ in $\mathbb{Z}$. So then $p = \frac{qc}{d}$ in $\mathbb{Q}$ because $d \in \mathbb{N}$.
+                    \item We also have $(n, m) \boxplus (p, q) = (a, b) \boxplus (c, d)$. This means $(n + p, m + q) = (a + c, b + d)$. So $(n + p)(b + d) = (m + q)(a + c)$. So $(n + p)(b + d) = (m + q)(a + c)$.
+                \end{itemize}
+                Now, consider $(n + p)(b + d) = (m + q)(a + c)$
+                \begin{gather*}
+                    (n + p)(b + d) = (m + q)(a + c)\\
+                    (\frac{ma}{b} + \frac{qc}{d})(b + d) = (m + q)(a + c)\\
+                    ma + \frac{qc}{d} b + \frac{ma}{b} d + qc = ma + qa + mc + qc\\
+                    \frac{qc}{d} b + \frac{ma}{b} d = qa + mc \text{ in } \mathbb{Q}\\
+                    \frac{qb}{d} c + \frac{md}{b} a = mc + qa \text{ in } \mathbb{Q}\\
+                    c( \frac{qb}{d} - m ) = a(q - \frac{md}{b}) 
+                \end{gather*}
+                And now I'm stuck. :(
+            \end{proof}
+        \end{enumerate}
+    \item[Problem 10.19:] Consider the set $S = \{ a, b, c, d, e, f \}$ and the relation $\mathcal{R} \subseteq S \times S$ given by.
+        \begin{align*}
+            \mathcal{R} & = \{ (a, a), (a, b), (a, d), (b, a), (b, b), (b, d), (c, c),\\ 
+            & (c, f), (d, a), (d, b), (d, d), (e, e), (f, c), (f, f) \}
+        \end{align*}
+        As it happens $\mathcal{R}$ is an equivalence relation on $S$. Find $S/\mathcal{R}$.
+    \item[] \emph{Solution. } We observe $[a] = [b] = [d], [c] = [f], \text{ and } [e]$ stands alone. So $S/_{\mathcal{R}} = \{[a], [e], [c]\}$
+    \item[Problem 11.2:] Let $A = \{ a, b, c, d, e \}$. Define a function $f: A \rightarrow A$ using a table of values:
+        \begin{center}
+            \begin{tabular}{ |c | c| }
+                \hline
+                $x$ & $f(x)$\\
+                \hline\hline
+                $a$ & $b$\\
+                \hline
+                $b$ & $b$\\
+                \hline
+                $c$ & $d$\\
+                \hline
+                $d$ & $c$\\
+                \hline
+                $e$ & $e$\\ 
+                \hline
+            \end{tabular}
+        \end{center}
+        Define a function $g: A \rightarrow A$ and using a table of values:
+        \begin{center}
+            \begin{tabular}{ |c | c| }
+                \hline
+                $x$ & $g(x)$\\
+                \hline\hline
+                $a$ & $b$\\
+                \hline
+                $b$ & $c$\\
+                \hline
+                $c$ & $d$\\
+                \hline
+                $d$ & $e$\\
+                \hline
+                $e$ & $a$\\ 
+                \hline
+            \end{tabular}
+        \end{center}
+        \begin{enumerate}
+            \item Is either $f(x)$ or $g(x)$ injective? $f(x)$ is not injective but $g(x)$ is injective.
+            \item Is either $f(x)$ or $g(x)$ surjective? $f(x)$ is not surjective but $g(x)$ is surjective.
+            \item Find a table for $(f \circ g)(x)$.
+        \begin{center}
+            \begin{tabular}{ |c | c| }
+                \hline
+                $x$ & $(f \circ g)(x)$\\
+                \hline\hline
+                $a$ & $b$\\
+                \hline
+                $b$ & $b$\\
+                \hline
+                $c$ & $d$\\
+                \hline
+                $d$ & $c$\\
+                \hline
+                $e$ & $e$\\ 
+                \hline
+            \end{tabular}
+        \end{center}
+            \item Find a table for $(f \circ f)(x)$.
+        \begin{center}
+            \begin{tabular}{ |c | c| }
+                \hline
+                $x$ & $(f \circ f)(x)$\\
+                \hline\hline
+                $a$ & $b$\\
+                \hline
+                $b$ & $b$\\
+                \hline
+                $c$ & $d$\\
+                \hline
+                $d$ & $c$\\
+                \hline
+                $e$ & $e$\\ 
+                \hline
+            \end{tabular}
+        \end{center}
+        \end{enumerate}
+    \item[Problem 11.3:] Consider the functions $f: \mathbb{R} \rightarrow \mathbb{R}$ given by $f(x) = x^{-1}$, and $g : \mathbb{R} \setminus \{ 0 \} \rightarrow \mathbb{R} \setminus \{ 0 \}$ given by $g(x) = x^{-1}$.
+        \begin{enumerate}
+            \item Prove $f(x)$ is injective.
+                \begin{proof}
+                    We want to prove: Let $a_1, a_2 \in \mathbb{R}$, if $f(a_1) = f(a_2)$, then $a_1 = a_2$.\\
+                    We need to consider 2 cases:
+                    \begin{enumerate}
+                        \item[1.] $a_1 = 0$ and $a_2 = 0$. Then $a_1 = a_2 = 0$ and the conditional statement is true by default.
+                        \item[2.] Assume $a_1 \ne 0$, $a_2 \ne 0$ and $f(a_1) = f(a_2)$. So $a_1^{-1} = a_2^{-1}$. So then $\frac{1}{a_1} = \frac{1}{a_2}$. Since both $a_1, a_2 \in \mathbb{R}$, $a_1 = a_2$.
+                    \end{enumerate}
+                \end{proof}
+            \item Prove $g(x)$ is injective.
+                \begin{proof}
+                    We want to prove: if $a_1, a_2 \in \mathbb{R} \setminus 0$
+                \end{proof}
+            \item Prove $f(x)$ is not surjective.
+                \begin{proof}
+                    We just need to pick at least one $b \in \mathbb{R}$ so that $\nexists a \in \mathbb{R} \text{ s.t } b = f(a)$. Let $b = 0$ and have found it.
+                \end{proof}
+            \item Prove $g(x)$ is surjective.
+                \begin{proof}
+                    We want to show: if $b \in \mathbb{R} \setminus \{ 0 \}$, then $\exists a \in \mathbb{R} \setminus \{0\} \text{ s.t } g(a) = b$.\\
+                    Assume $b \in \mathbb{R} \setminus \{ 0 \}$. Then $\frac{1}{b} \in \mathbb{R} \setminus \{ 0 \}$. Let $a = \frac{1}{b}$ so $a \in \mathbb{R} \setminus \{ 0 \}$ and we are done.
+                \end{proof}
+            \item Carefully evaluate the two functions $(f \circ f)(x)$ and $(g \circ g)(x)$. Be completely precise about these 2 results.
+            \item[] \emph{Solution. }
+            \begin{enumerate}
+                \item $(f \circ f)(x): \mathbb{R} \rightarrow \mathbb{R}$. $(f \circ f)(x) = f(f(x)) = \frac{1}{\frac{1}{x}}$
+                \item $(g \circ g)(x): \mathbb{R} \setminus \{ 0 \} \rightarrow \mathbb{R} \setminus \{ 0 \}$. $(g \circ g)(x) = g(g(x)) = \frac{1}{\frac{1}{x}} = x$. 
+            \end{enumerate}
+        \end{enumerate}
+\end{enumerate}
+\end{document}

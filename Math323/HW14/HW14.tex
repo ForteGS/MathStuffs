@@ -1,0 +1,146 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW14}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\begin{document}
+% Generates the title
+\maketitle
+\begin{enumerate}
+    \item[Problem 9.1:] True or false
+        \begin{enumerate}
+            \item $\emptyset \in \emptyset$. False.
+            \item $\emptyset \subseteq \emptyset$. True.
+            \item $\emptyset = \emptyset$. True.
+            \item $\emptyset \in \{ \emptyset\}$. True.
+            \item $\emptyset \subseteq \{ \emptyset\}$. True.
+            \item $\emptyset = \{ \emptyset\}$. False.
+            \item $\{ \emptyset \} \in \emptyset$. False. 
+            \item $\{ \emptyset\} \subseteq \emptyset$. False.
+            \item $\{ \emptyset\} = \emptyset$. False.
+            \item As a subset of $\mathbb{R}$: $\emptyset$ has a minimum. False
+            \item As a subset of $\mathbb{R}$: $\emptyset$ has a lower bound. True.
+            \item As a subset of $\mathbb{R}$: $\emptyset$ has an infimum. False.
+            \item In the integers, $(1, 5) = \{2, 3, 4\}$. True.
+            \item $(1, 5) \cap \mathbb{Z} = \{2, 3, 4\}$. True.
+            \item $(-3, 3]$ has an upper bound. True.
+            \item $(-3, 3]$ has an infimum. True.
+            \item $\infty \in [-3, \infty]$. False.
+            \item $(0, 4) \subseteq \mathbb{Q}$. False.
+            \item $(0, \infty) \cap \mathbb{Z} \subseteq \mathbb{Q}$. True.
+            \item $(0, \infty) \cup \mathbb{Z} \subseteq \mathbb{Q}$. False.
+            \item $(0, 10) \setminus \mathbb{Z} \subseteq \mathbb{Q}$. False.
+            \item $\mathbb{Z} \setminus (0, 10) \subseteq \mathbb{Q}$. True.
+        \end{enumerate}
+    \item[Problem 9.3c:] Prove that for all sets $A$ and $B$: $A \cap B = B$ if and only if $B \subseteq A$.
+        \begin{proof}
+            Let $A$ and $B$ be sets. We need to prove two statements.
+            \begin{enumerate}
+                \item[1.] If $A \cap B = B$, then $B \subseteq A$.
+                \item[] Assume $A \cap B = B$. So $B \subseteq A \cap B$. So if $a \in B$, then $a \in A \cap B$. Assume $a \in B$, then $a \in A$ and $a \in B$. So if $a \in B$, then $a \in A$. This means $B \subseteq A$.
+                \item[2.] If $B \subseteq A$, then $A \cap B = B$.
+                \item[] Assume $B \subseteq A$. We need to prove 2 claims.
+                    \begin{enumerate}
+                        \item $A \cap B \subseteq B$.\\
+                        Assume $a \in (A \cap B)$. So $a \in A$ and $a \in B$. So $A \cap B \subseteq B$.
+                        \item $B \subseteq A \cap B$.\\
+                            Assume $a \in B$. Since $B \subseteq A$, $a \in A$. So $a \in B \cap A$. So $B \subseteq (A \cap B)$.
+                    \end{enumerate}
+                    Thus if $B \subseteq A$, then $A \cap B = B$.
+            \end{enumerate}
+            So we have proved that for all sets $A$ and $B$: $A \cap B = B$ if and only if $B \subseteq A$. 
+        \end{proof}
+    \item[Problem 9.4:] An interval is supposed to be a subset of $\mathbb{R}$ with no gaps and no holes. Thus all the following sets are intervals:
+        \begin{itemize}
+            \item $\emptyset$ and $\mathbb{R}$.
+            \item for $a \in \mathbb{R}$, $\{a \}, (a, \infty), [a, \infty), (- \infty, a) \text{ and } (- \infty, a]$;
+            \item and for $a < b, (a, b), (a, b], [a, b), \text{ and } [a, b]$.
+        \end{itemize}
+        \begin{enumerate}
+            \item Give a definition of "interval" based on the fact that an interval must contain all the real numbers that lie between any 2 numbers in the interval.
+            \begin{definition}
+                Let $a, b \in \mathbb{R}$ so that $a \le b$. We say the the set of all real numbers between $a$ and $b$ is an \emph{interval}. The inclusion of $a$ or $b$ or both depends on the notation of interval.
+            \end{definition}
+            \item Use the definition to prove, if $A \subseteq \mathbb{R}$ is a nonempty interval with a upper and lower bounds, then $\exists a, b \in \mathbb{R}$ s.t $(a, b) \subseteq A \subseteq [a, b]$.
+                \begin{proof}
+                    Assume $A \subseteq \mathbb{R}$ is a nonempty interval with a upper bound and lower bound. We want to prove  $\exists a, b \in \mathbb{R} \text{ s.t } (a, b) \subseteq A \subseteq [a, b]$. Since $A \in \mathbb{R}$, $A \ne \emptyset$, and $A$ has an upper bound, by the Completeness Axiom, $A$ has a least upper bound. Let it be $b$. We also know $A$ has a lower bound, by the Completeness Axiom, $A$ has a greatest lower bound. Let it be $a$. Let $r \in A$. We know $a \le r \le b$. So $r \in [a, b]$. So $A \subseteq [a, b]$.\\
+                    Let $q \in (a, b)$. This means $a < q < b$, so $q \in A$. So $(a, b) \subseteq A$.
+                    Thus $(a, b) \subseteq A \subseteq [a, b]$ where $a$ and $b$ are the greatest lower bound and the least upper bound of the set $A$.
+                \end{proof}
+            \item Use the definition to prove, if $A \subseteq \mathbb{R}$ is a nonempty interval with a upper bound and no lower bound, then $\exists b \in \mathbb{R}$ s.t $(- \infty, b) \subseteq A \subseteq (- \infty, b ]$.
+                \begin{proof}
+                    Assume $A \subseteq \mathbb{R}$ is a nonempty with an upper bound and no lower bound. By the Completeness Axiom, $A$ has a least upper bound. Let it be $b$. Let $r \in A$. We know $-\infty < r \le b$, so $A \subseteq (-\infty, b]$. Let $q \in (-\infty, b)$. This means $-\infty < q < b$. But then that also means $q \in A$. So $(-\infty,b) \subseteq A$.
+                \end{proof}
+            \item Use the definition to prove, if $A \in \mathbb{R}$ is a nonempty interval with a lower bound and no upper bound, then $\exists a \in \mathbb{R}$ such that $(a, \infty) \subseteq A \subseteq [a, \infty)$.
+                \begin{proof}
+                    Assume $A \subseteq \mathbb{R}$ is a nonempty with a lower bound and no upper bound. By the Completeness Axiom, $A$ has a greatest lower bound. Let it be $a$. Let $r \in A$. We know $a \le r < \infty$, so $A \subseteq [a, \infty)$. Let $q \in (a, \infty)$. This means $a < q < \infty$. But then that also means $q \in A$. So $(a, \infty) \subseteq A$.
+                \end{proof}
+            \item Use the definition to prove, if $A \subseteq \mathbb{R}$ is a nonempty interval with no lower bound and no upper bound, then $A = \mathbb{R}$.
+                \begin{proof}
+                    Assume $A$ is a nonempty interval with no lower bound and no upper bound. We will need prove 2 claims.
+                    \begin{enumerate}
+                        \item[1.] $A \subseteq \mathbb{R}$.\\
+                            Assume $a \in A$. Since $A$ has no lower bound and no upper bound, $A = (-\infty, \infty)$. So $-\infty < a < \infty$. But then that means $a \in \mathbb{R}$. So $A \subseteq \mathbb{R}$.
+                        \item[2.] $\mathbb{R} \subseteq A$.
+                            Assume $r \in \mathbb{R}$. So $-\infty < r < \infty$. Since $A$ has no lower bound and no upper bound, $A = (-\infty, \infty)$. So $r \in A$. Thus $\mathbb{R} \subseteq A$.
+                    \end{enumerate}
+                \end{proof}
+            \item Use the definition to prove, if $A \subseteq \mathbb{R}$ is an interval, then $A$ has one of the forms
+            \begin{gather*}
+                \emptyset, \{a \}, (a, b), (a, b], [a, b), [a, b]\\
+                (a, \infty), [a, \infty), (- \infty, b), (- \infty, b] \text{ or } \mathbb{R}
+            \end{gather*}
+            \begin{proof}
+                By Trichotomy and (b), (c), (d), and (e), $A$ has to be one of the form: $(a, b), (a, b]), [a, b), [a, b], (a, \infty), [a, \infty), (-\infty, b), (-\infty, b] \text{ or } \mathbb{R}$.\\
+                By the definition of interval, assume $a, b \in \mathbb{R}$ so that $a = b$, then by Trichotomy and interval notation, we have 2 cases:
+                \begin{enumerate}
+                    \item[1.] If $r \in A$, then $a < r < a$.
+                        Assume $r \in A$, $a < r < a$. There's no $r$ satisfy that condition. So $A = \emptyset$.
+                    \item[2.] If $r \in A$, then $a \le r \le a$.
+                        Assume $r \in A$, $a \le r \le a$. By Trichotomy, $r = a$. So $A = \{ a \}$.
+                \end{enumerate}
+            \end{proof}
+        \end{enumerate}
+    \item[Problem 9.5a:] Let $A$, $B$, and $C$ be sets, prove that: $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
+        \begin{proof}
+            Let $A$, $B$, and $C$ be sets. We need to prove 2 claims.
+            \begin{enumerate}
+                \item[1.] $A \cap (B \cup C) \subseteq (A \cap B) \cup (A \cap C)$.\\
+                    Assume $a \in A \cap (B \cup C)$. So $a \in A$ and $a \in (B \cup C)$. Consider $a \in B \cup C$. We have two cases.
+                    \begin{enumerate}
+                        \item[Case 1:] $a \in B$. We also know $a \in A$. So $a \in A$ and $a \in B$. This means $a \in A \cap B$. Thus $a \in (A \cap B) \cup (A \cap C)$.
+                        \item[Case 2:] $a \in C$. We also know $a \in A$. So $a \in A$ and $a \in C$. This means $a \in A \cap C$. Thus $a \in (A \cap B) \cup (A \cap C)$. 
+                    \end{enumerate}
+                    So $A \cap (B \cup C) \subseteq (A \cap B) \cup (A \cap C)$.
+                \item[2.] $(A \cap B) \cup (A \cap C) \subseteq A \cap (B \cup C)$.\\
+                    Assume $a \in (A \cap B) \cup (A \cap C)$. We have 2 cases.
+                    \begin{enumerate}
+                        \item[Case 1:] $a \in A \cap B$. So $a \in A$ and $a \in B$. So $a \in B \cup C$. Since $a \in A$, $a \in A \cap (B \cup C)$.
+                        \item[Case 2:] $a \in A \cap C$. So $a \in A$ and $a \in C$. So $a \in B \cup C$. Since $a \in A$, $a \in A \cap (B \cup C)$.
+                    \end{enumerate}
+                    Thus $(A \cap B) \cup (A \cap C) \subseteq A \cap (B \cup C)$.
+            \end{enumerate}
+            So $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
+        \end{proof}
+    \item[Problem 9.7:] Define a family of sets by: for $n \in \mathbb{Z}$, $S_n = \{ 0, \pm n \}$.
+        \begin{enumerate}
+            \item $n = m$ implies $S_n = S_m$. True
+            \item $S_n = S_m$ implies $n = m$. False. Take $S_{-1} = S_1$ but $1 \ne -1$.
+            \item $n \ne m$ implies $S_n \ne S_m$. False. If $1 \ne -1$, then $S_{1} \ne S_{-1}$. But $S_{1} = S_{-1}$.
+            \item $S_n \ne S_m$ implies $n \ne m$. True.
+            \item Every set in the family has three elements. False. $S_{0} = \{ 0 \}$.
+            \item If $S_n \subseteq S_m$, then $m = n$. False. $S_{0} \subseteq S_{1}$ but $0 \ne 1$.
+            \item $\forall n, m \in \mathbb{Z}$, $S_n \cap S_m = \{ 0 \}$. True
+            \item $\forall n, m \in \mathbb{Z}$, $S_n \cap S_m = \emptyset$. False.
+        \end{enumerate}
+\end{enumerate}
+\end{document}

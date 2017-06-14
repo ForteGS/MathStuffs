@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW13}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\begin{document}
+% Generates the title
+\maketitle
+\begin{enumerate}
+    \item[Problem 7.14: ] Let $S = \{ x \in \mathbb{R} \mid \exists n \in \mathbb{N} \text{ s.t } x = \frac{n+1}{n} \}$. Prove that 1 is the infimum of $S$.
+    \begin{proof}
+        We need to prove 2 claims.
+        \begin{enumerate}
+            \item[1.] If $s \in S$, then $1 \le s$.\\
+                Assume $s \in S$. $\exists m \in \mathbb{N} \text{ s.t } s = \frac{m+1}{m}$. Since $m \in \mathbb{N}, m > 0$. So we have $s = \frac{m+1}{m} = 1 + \frac{1}{m} \ge 1$ since we know $\frac{1}{m} \ge 0$. So $1$ is the lower bound on the set $S$.
+            \item[2.] If $x \in \mathbb{R}$ and $x > 1$, then $\exists t \in S \text{ s.t } t < x$.\\
+                Assume $x \in \mathbb{R}$ and $x > 1$. So $x - 1 > 0$. By the Archimedean principle, $\exists p \in \mathbb{N} \text{ s.t } 0 < \frac{1}{p} < x - 1$. So $1 < \frac{1}{p} + 1 < x$. Let $t = \frac{1}{p} + 1$ and we know $t \in S$ and we are done.
+        \end{enumerate}
+        Proving two claims above establishes that $1$ is the infimum of $S$.
+    \end{proof}
+    \item[Problem 8.1: ] Prove that the least upper bound of a set is unique.
+    \begin{proof}
+        Assume $l_1$ and $l_2$ is the least upper bound of a set $S$. Since $l_1$ and $l_2$ are both upper bounds and are both least upper bound of a set $S$. We have $l_1 \ge l_2 \text{ and } l_2 \ge l_1$. By Trichotomy, $l_1 = l_2$.
+    \end{proof}
+    \item[Problem 8.6: ] Prove that the set
+        \begin{equation*}
+            S = \{ x \in \mathbb{R} \mid \exists s \in \mathbb{R} \text{ s.t } x = s^6 + 19s^4 + 11s^2 +14\}
+        \end{equation*}
+        has an infimum.
+    \begin{proof}
+        We will instead prove that: $14$ is the minimum of the set
+        \begin{equation*}
+            S = \{ x \in \mathbb{R} \mid \exists s \in \mathbb{R} \text{ s.t } x = s^6 + 19s^4 + 11s^2 + 14 \}
+        \end{equation*}
+        We will need to prove 2 claims.
+        \begin{enumerate}
+            \item[1.] $14 \in S$.\\
+                Let $s \in S$. $\exists r \in \mathbb{R} \text{ s.t } s = r^6 + 19r^4 + 11r^2 + 14$. Let $r = 0$, then $s = 0 + 0 + 0 + 14 = 14$. So $14 \in S$.
+            \item[2.] If $s \in S$, then $14 \le s$.\\
+                Assume $s \in S$. So $\exists r \in \mathbb{R} \text{ s.t } s = r^6 + 19r^4 + 11r^2 + 14$. Since $r \in \mathbb{R}$, $r^6 \ge 0$ and $r^4 \ge 0$ and $r^2 \ge 0$. So $r^6 + 19r^4 + 11r^2 + 14 \ge 14$, which means $s \ge 14$. So $14$ is a lower bound of the set $S$.
+        \end{enumerate}
+        Since $14$ is the minimum of the set S, we know $14$ is the infimum of the set. And so we have proved that the set $S$ has an infimum.
+    \end{proof}
+\end{enumerate}
+\end{document}

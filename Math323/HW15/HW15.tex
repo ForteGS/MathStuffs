@@ -1,0 +1,164 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW14}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\begin{document}
+% Generates the title
+\maketitle
+\begin{enumerate}
+    \item[Problem 9.9b:] Let $A$ be a set and $B_i$ with $i \in \mathcal{I}$ be a family of sets. Prove:
+        \begin{equation*}
+            A \cup \left \lgroup \bigcup\limits_{i \in \mathcal{I}} B_i \right \rgroup = \bigcup\limits_{i \in \mathcal{I}} (A \cup B_i).
+        \end{equation*}
+        \begin{proof}
+            Let $A$ be a set and $B_i$ with $i \in \mathcal{I}$ be a family set. We will need to prove 2 claims.
+            \begin{enumerate}
+                \item[1.] $A \cup \left \lgroup \bigcup\limits_{i \in \mathcal{I}} B_i \right \rgroup \subseteq \bigcup\limits_{i \in \mathcal{I}} (A \cup B_i)$\\
+                Assume $a \in A \cup \left \lgroup \bigcup\limits_{i \in \mathcal{I}} B_i \right \rgroup$. We have two posibilities.
+                \begin{enumerate}
+                    \item $a \in A$.\\
+                        Assume $a \in A$. Then $a \in A \cup B_i$ for some $i \in \mathcal{I}$. So then $a \in \bigcup\limits_{i \in \mathcal{I}} (A \cup B_i)$.
+                    \item $a \in \bigcup\limits_{i \in \mathcal{I}} B_i$.\\
+                        Assume $a \in \bigcup\limits_{i \in \mathcal{I}} B_i$. So $\exists k \in \mathcal{I} \text{ s.t } a \in B_k$. Then $a \in B_k \cup A$. Thus $a \in \bigcup\limits_{i \in \mathcal{I}} (A \cup B_i)$.
+                \end{enumerate}
+                \item[2.] $A \cup \left \lgroup \bigcup\limits_{i \in \mathcal{I}} B_i \right \rgroup \supseteq \bigcup\limits_{i \in \mathcal{I}} (A \cup B_i)$\\
+                    Assume $a \in \bigcup\limits_{i \in \mathcal{I}} (A \cup B_i)$. We have two possibilities.
+                    \begin{enumerate}
+                        \item $a \in A$.\\
+                            Assume $a \in A$. Then $a \in A \cup \left \lgroup \bigcup\limits_{i \in \mathcal{I}} B_i \right \rgroup$.
+                        \item $a \notin A$.\\
+                            Assume $a \notin A$. Then $\exists k \in \mathcal{I} \text{ s.t } a \in B_k$. Then $a \in \bigcup\limits_{k \in \mathcal{I}} B_i$. Thus $a \in \left \lgroup \bigcup\limits_{k \in \mathcal{I}} B_i \right \rgroup \cup A$.
+                    \end{enumerate}
+                Proving 2 above claims entails: $A \cup \left \lgroup \bigcup\limits_{i \in \mathcal{I}} B_i \right \rgroup = \bigcup\limits_{i \in \mathcal{I}} (A \cup B_i)$.
+            \end{enumerate}
+        \end{proof}
+    \item[Problem 9.13:] Prove that $\bigcap\limits_{n \in \mathbb{N}} (0, \frac{n+1}{n}) = (0, 1]$.
+        \begin{proof}
+            Since $n \in \mathbb{N}$, $\frac{n+1}{n} = 1 + \frac{1}{n}$.
+            We will need to prove 2 claims.
+            \begin{enumerate}
+                \item[1.] $\bigcap\limits_{n \in \mathbb{N}} (0, 1 + \frac{1}{n}) \subseteq (0, 1]$.\\
+                    Precisely, we need to prove: if $x \in \bigcap\limits_{n \in \mathbb{N}} (0, 1 + \frac{1}{n})$, then $x \in (0, 1]$. We proceed by proving the contrapositive of the statement. So we want to show that: if $x \notin (0, 1]$, then $x \notin \bigcap\limits_{n \in \mathbb{N}} (0, 1 + \frac{1}{n})$.\\
+                    Assume $x \notin (0, 1]$. This means $x < 0$ or $x > 1$.
+                    \begin{enumerate}
+                        \item[1.] $x < 0$.\\
+                            Assume $x < 0$. Then $\forall n \in \mathbb{N},x \notin (0, 1 + \frac{1}{n})$. So $x \notin \bigcap\limits_{n \in \mathbb{N}} (0, 1 + \frac{1}{n})$.
+                        \item[2.] $x > 1$.\\
+                            Assume $x > 1$. Since $x \in \mathbb{R}$, $x - 1 > 0$ and $x - 1 \in \mathbb{R}$. By the corollary of the Archimedean principle, $\exists t \in \mathbb{N} \text{ s.t } \frac{1}{t} < x - 1$. So then $\frac{1}{t} + 1 < x$. This means $x \notin (0, 1 + \frac{1}{t})$ for some $t \in \mathbb{N}$. Then $x \notin \bigcap\limits_{n \in \mathbb{N}} (0, 1 + \frac{1}{n})$.
+                    \end{enumerate}
+                    Thus $0 < x \le 1$ and hence $x \in (0, 1]$.
+
+                \item[2.] $\bigcap\limits_{n \in \mathbb{N}} (0, 1 + \frac{1}{n}) \supseteq (0, 1]$.\\
+                    Assume $x \in (0, 1]$. Then $0 < x \le 1$. Then $\forall n \in \mathbb{N}$, $0 < x < 1 + \frac{1}{n}$. This means $x \in \bigcap\limits_{n \in \mathbb{N}} (0, 1 + \frac{1}{n})$.
+            \end{enumerate}
+            So $\bigcap\limits_{n \in \mathbb{N}} (0, \frac{n+1}{n}) = (0, 1]$.
+        \end{proof}
+    \item[Problem 9.17:] For each $s \in \mathbb{Q}$, let $E_s = \{ 1, \frac{1}{2}, s \}$.
+    \begin{enumerate}
+        \item Find $\bigcup\limits_{t \in \mathbb{Q}} E_t$ and prove your answer is correct.
+        \item[] $\bigcup\limits_{t \in \mathbb{Q}} E_t = \mathbb{Q}$.
+            \begin{proof}
+                We will need to prove 2 things.
+                \begin{enumerate}
+                    \item[1.] We want to show $\bigcup\limits_{t \in \mathbb{Q}} E_t \subseteq \mathbb{Q}$.\\
+                        Assume $q \in \bigcup\limits_{t \in \mathbb{Q}} E_t$. So then exactly one of these holds: $q = 1$, $q = \frac{1}{2}, \text{ or } q = t$ for some $t \in \mathbb{Q}$. Since $\frac{1}{2} \in \mathbb{Q}$, $1 \in \mathbb{Q}$, and $t \in \mathbb{Q}$, $q \in \mathbb{Q}$. 
+
+                    \item[2.] We also want to show $\mathbb{Q} \subseteq \bigcup\limits_{t \in \mathbb{Q}} E_t$.\\
+                        Assume $q \in \mathbb{Q}$. Then $q \in E_q$. Then $q \in \bigcup\limits_{t \in \mathbb{Q}} E_t$.
+                \end{enumerate}
+                Thus $\bigcup\limits_{t \in \mathbb{Q}} E_t = \mathbb{Q}$.
+            \end{proof}
+        \item Find $\bigcap\limits_{t \in \mathbb{Q}} E_t$ and prove your answer is correct.
+        \item[] $\bigcap\limits_{t \in \mathbb{Q}} E_t = \{ 1, \frac{1}{2} \}$.
+            \begin{proof}
+                We will need to show that.
+                \begin{enumerate}
+                    \item[1.] $\bigcap\limits_{t \in \mathbb{Q}} E_t \subseteq \{ 1, \frac{1}{2} \}$.\\
+                        Assume $q \in \bigcap\limits_{t \in \mathbb{Q}} E_t$. So then $\forall t \in \mathbb{Q}, q \in E_t$. So then exactly one of these holds: $q = 1$ or $q = \frac{1}{2}$ which means $q \in \{ 1, \frac{1}{2} \}$.
+                    \item[2.] $\{ 1, \frac{1}{2} \} \subseteq \bigcap\limits_{t \in \mathbb{Q}} E_t$.\\
+                        Assume $q \in \{ 1, \frac{1}{2} \}$. Then $q \in \{ 1, \frac{1}{2}, t\} \forall t \in \mathbb{Q}$. Thus $q  \in \bigcap\limits_{t \in \mathbb{Q}} E_t$.
+                \end{enumerate}
+                Hence, $\bigcap\limits_{t \in \mathbb{Q}} E_t = \{ 1, \frac{1}{2} \}$.
+            \end{proof}
+        \item Is the statement: If $E_s = E_r$, then $s = r$ true or false? Prove your answer.
+        \item[] True.
+            \begin{proof}
+                Assume $E_s = E_r$. This means
+                \begin{enumerate}
+                    \item[1.] $E_s \subseteq E_r$.
+                        Assume $q \in E_s$. Then exactly one of these has to be true: $q = 1, q = \frac{1}{2}, \text{ or } q = s$. But $s = r$. So then exactly one of these holds: $q = 1, q = \frac{1}{2}, \text{ or } q = r$. This means $q \in E_r$.
+                    \item[2.] $E_r \subseteq E_s$.
+                        Assume $q \in E_r$. Then exactly one of these has to be true: $q = 1, q = \frac{1}{2}, \text{ or } q = r$. But $r = s$. So then exactly one of these holds: $q = 1, q = \frac{1}{2}, \text{ or } q = s$. This means $q \in E_s$.
+                \end{enumerate}
+                Thus: If $E_s = E_r$, then $s = r$.
+            \end{proof}
+    \end{enumerate}
+    \item[Problem 10.4:] Consider the relation on $\mathbb{Z}$ defined by $n \mathcal{R} m$ if $n + m$ is even.
+        \begin{enumerate}
+            \item Is $\mathcal{R}$ reflexive? Yes.
+                \begin{proof}
+                    Let $n \in \mathbb{Z}$. We need to show $n \mathcal{R} n$ if $n + n$ is even. Regardless of whether $n$ is even or $n$ is odd, $n + n = 2n$ is always even.
+                \end{proof}
+            \item Is $\mathcal{R}$ symmetric? Yes
+                \begin{proof}
+                    Let $n, m \in \mathbb{Z}$. We need to show: if $n \mathcal{R} m$ then $m \mathcal{R} n$. Assume $n \mathcal{R} m$. This means $n + m$ is even. But then $n + m = m + n$, which is also even. So $m + n$ is even. Thus $m \mathcal{R} n$.
+                \end{proof}
+            \item Is $\mathcal{R}$ transitive? Yes.
+                \begin{proof}
+                Let $a, b, \text{ and } c \in \mathbb{Z}$. We need to show: If $a \mathcal{R} b$ and $b \mathcal{R} c$, then $a \mathcal{R} c$.\\
+                Assume $a \mathcal{R} b$ and $b \mathcal{R} c$. Respectively we have,
+                \begin{gather*}
+                    \exists k \in \mathbb{Z} \text{ s.t } a + b = 2k\\
+                    \exists l \in \mathbb{Z} \text{ s.t } b + c = 2l
+                \end{gather*}
+                Consider $a + b + b + c$
+                \begin{gather*}
+                    a + b + b + c = 2k + 2l\\
+                    a + 2b + c = 2k + 2l\\
+                    a + c = 2k + 2l - 2b\\
+                    a + c = 2(k + l - b)
+                \end{gather*}
+                We know $(k + l - b) \in \mathbb{Z}$. So the relation $R$ is transitive.
+                \end{proof}
+            \item Does $\mathcal{R}$ have trichotomy? No since $\mathcal{R}$ is symmetric.
+        \end{enumerate}
+    \item[Problem 10.5:] Consider the relation on $\mathbb{R}$ defined by $n \backsimeq m$ if $n - m \in \mathbb{Z}$.
+        \begin{enumerate}
+            \item Is $\backsimeq$ reflexive? Yes
+                \begin{proof}
+                    Assume $n\in \mathbb{R}$. We want to show $n \backsimeq n$. This means we want $n - n \in \mathbb{Z}$. Since $n - n = 0 \in \mathbb{Z}$, the relation $\backsimeq$ is reflexive.
+                \end{proof}
+            \item Is $\backsimeq$ symmetric? Yes
+                \begin{proof}
+                    Assume $n, m \in \mathbb{R}$. We want to show: if $n \backsimeq m$, then $m \backsimeq n$.\\
+                    Assume $n \backsimeq m$. This means $\exists k \in \mathbb{Z} \text{ s.t } n - m = k$. Multiply both sides by $-1$: $m - n = -k$. We know $-k \in \mathbb{Z}$ so the relation $\backsimeq$ is symmetric.
+                \end{proof}
+            \item Is $\backsimeq$ transitive? Yes
+                \begin{proof}
+                    Assume $m, n, p \in \mathbb{R}$. We want to show: if $n \backsimeq m$ and $m \backsimeq p$, then $n \backsimeq p$.\\
+                    Assume $n \backsimeq m$ and $m \backsimeq p$. Respectively we have,
+                    \begin{gather*}
+                        \exists k \in \mathbb{Z} \text{ s.t } n - m = 2k\\
+                        \exists l \in \mathbb{Z} \text{ s.t } m - p = 2l
+                    \end{gather*}
+                    Consider $(n - m) + (m - p)$
+                    \begin{gather*}
+                        n - m + m - p = 2k + 2l\\
+                        n - p = 2k + 2l
+                    \end{gather*}
+                    We know $2k + 2l \in \mathbb{Z}$. So $n \backsimeq p$. Thus the relation $\backsimeq$ is transitive.
+                \end{proof}
+            \item Does $\backsimeq$ have trichotomy? No because $\backsimeq$ is symmetric.
+        \end{enumerate}
+\end{enumerate}
+\end{document}

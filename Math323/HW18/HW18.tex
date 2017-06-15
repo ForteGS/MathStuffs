@@ -1,0 +1,130 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW18}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\begin{document}
+% Generates the title
+\maketitle
+\begin{enumerate}
+    \item[Problem 11.10:] Define $f: \mathbb{R} \rightarrow \mathbb{R}$ given by\
+        \begin{equation*}
+            f(x) = \left\{
+                \begin{array}{rl}
+                    x^2 & \text{ if } x > 0\\
+                    0 & \text{ if } x = 0\\
+                    -x^2 & \text{ if } x < 0
+                \end{array} \right.
+        \end{equation*}
+        \begin{enumerate}
+            \item Prove that $f(x)$ is bijective.
+            \begin{proof}
+                We need to prove $f(x)$ is both injective and surjective.
+                \begin{enumerate}
+                    \item[1.] $f(x)$ is injective.\\
+                        We want to show: if for $a, b \in \mathbb{R}$ and $f(a) = f(b)$, then $a = b$.\\
+                        Assume $a, b \in \mathbb{R}$ and $f(a) = f(b)$. We consider
+                        \begin{equation*}
+                            f(a) = \left\{
+                                \begin{array}{rl}
+                                    a^2 & \text{ if } a > 0\\
+                                    0 & \text{ if } a = 0\\
+                                    -a^2 & \text{ if } a < 0
+                                \end{array} \right.
+                        \end{equation*}
+                        \begin{equation*}
+                            f(b) = \left\{
+                                \begin{array}{rl}
+                                    b^2 & \text{ if } b > 0\\
+                                    0 & \text{ if } b = 0\\
+                                    -b^2 & \text{ if } b < 0
+                                \end{array} \right.
+                        \end{equation*}
+                        But $f(a) = f(b)$ because of our assumption. We have 3 cases for $a$ (or $b$).
+                        \begin{enumerate}
+                            \item[i.] $a$ and $b$ have the same sign. Assume $a < 0$ and $b < 0$. Then $f(a) = f(b) =  -a^2 = -b^2$. $(a - b)(a + b) = 0$. Since $a$ and $b$ have the same sign, only $(a - b) = 0$ can happen. So $a = b$.
+                            \item[ii.] $a = 0$ and $b = 0$. Then $a = b = 0$.
+                            \item[iii.]$a$ and $b$ do not have the same sign. Assume $a > 0$ and $b < 0$. Then $f(a) = f(b) = a^2 = -b^2$. So $a^2 + b^2 = 0$. But we know $a^2 > 0$ and $b^2 > 0$ for $a \ne 0$ and $b \ne 0$. So $a^2 + b^2 > 0$. This case can't happen.
+                        \end{enumerate}
+                        Note that we actually have 5 cases but we only need to consider 3 cases because the value of $a$ and $b$ are interchangable. Thus, $f(x)$ is injective.
+                    \item[2.] $f(x)$ is surjective.\\
+                        We want to show: If $y \in \mathbb{R}$, then $\exists x \in \mathbb{R}$ s.t $y = f(x)$.\\
+                        Assume $y \in \mathbb{R}$. We consider 3 cases for $y$.
+                        \begin{enumerate}
+                            \item[i.] $y < 0$. Assume $y < 0$. Then $-y > 0$. Let $x = \sqrt{-y}$ and we are done.
+                            \item[ii.] $y = 0$. Let $x = 0$.
+                            \item[iii.] $y > 0$. Let $x = \sqrt{y}$.
+                        \end{enumerate}
+                        So $f(x)$ is surjective.
+                \end{enumerate}
+                Thus $f(x)$ is bijective.
+            \end{proof}
+            \item Find $f^{-1}(x)$.
+            \item[] \emph{Solution. }
+                \begin{equation*}
+                    f^{-1}(x) = \left\{
+                    \begin{array}{rl}
+                        \sqrt{x} & \text{ if } x > 0\\
+                        0 & \text{ if } x = 0\\
+                        -\sqrt{-x} & \text{ if } x < 0
+                    \end{array} \right.
+                \end{equation*}
+            \item Consider $g : \mathbb{R} \rightarrow \mathbb{R}$ given by $g(x) = x|x|$. Compare this to $f(x)$.
+            \item[] Using the definition of absolute value, we observe $g(x)$.
+                \begin{equation*}
+                    g(x) = x|x| = \left\{
+                    \begin{array}{rl}
+                        x^2 & \text{ if } x > 0\\
+                        0 & \text{ if } x = 0\\
+                        x|x| = x(-x) = -x^2 & \text{ if } x < 0
+                    \end{array} \right.
+                \end{equation*}
+            So $f(x) = g(x)$.
+        \end{enumerate}
+    \item[Problem 12.6:] Let $f:A \rightarrow B$ be a function. Let $S_1, S_2 \subseteq A$ and $T_1, T_2 \subseteq B$.
+        \begin{enumerate}
+            \item Prove that if $S_1 \subseteq S_2$, then $f(S_1) \subseteq f(S_2)$.
+                \begin{proof}
+                    Let $f: A \rightarrow B$ be a function. Let $S_1, S_2 \subseteq A$.\\
+                    Assume $S_1 \subseteq S_2$. We want to show: if $y \in f(S_1)$, then $y \in f(S_2)$. By definition 
+                    \begin{gather*}
+                        f(S_1) = \{ y \in B \mid \exists x \in S_1 \text{ s.t } y = f(x) \}\\
+                        f(S_2) = \{ y \in B \mid \exists x \in S_2 \text{ s.t } y = f(x) \}
+                    \end{gather*}
+                    Assume $y \in f(S_1)$. So then $\exists x_1 \in S_1 \text{ s.t } y = f(x_1)$. But since $S_1 \subseteq S_2$, $x_1 \in S_2$. But then that means $\exists x_2 = x_1 \in S_2 \text{ s.t } y = f(x_2)$. And so $y \in f(S_2)$.
+                \end{proof}
+            \item Prove that if $T_1 \subseteq T_2$, then $f^{-1}(T_1) \subseteq f^{-1}(T_2)$.
+                \begin{proof}
+                    Let $f: A \rightarrow B$ be a function. Let $T_1, T_2 \subseteq B$.\\
+                    Assume $T_1 \subseteq T_2$. We want to show: If $x \in f^{-1}(T_1)$, then $x \in f^{-1}(T_2)$. By definition
+                    \begin{gather*}
+                        f^{-1}(T_1) = \{ x \in A \mid f(x) \in T_1 \}\\
+                        f^{-1}(T_2) = \{ x \in A \mid f(x) \in T_2 \}
+                    \end{gather*}
+                    Assume $x \in f^{-1}(T_1)$. This means $f(x) \in T_1$. But since $T_1 \subseteq T_2$, $f(x) \in T_2$. But then that also means $x \in f^{-1}(T_2)$. Thus $f^{-1}(T_1) \subseteq f^{-1}(T_2)$.
+                \end{proof}
+        \end{enumerate}
+    \item[Problem 12.7:] Prove: If $f : A \rightarrow B$ is a function with domain $A$ and $S_i$ with $i \in \mathcal{I}$ is a family of sets where $\forall i \in \mathcal{I}$, $S_i \subseteq A$, then
+        \begin{equation*}
+            f \left \lgroup \bigcap\limits_{i \in \mathcal{I}} S_i \right \rgroup \subseteq \bigcap\limits_{i \in \mathcal{I}} f(S_i)
+        \end{equation*}
+        \begin{proof}
+            Assume $f: A \rightarrow B$ is a function with domain $A$. Let $S_i$ with $i \in \mathcal{I}$ is a family of sets where $\forall i \in \mathcal{I}, S_i \subseteq A$.\\
+            Assume $a \in f \left \lgroup \bigcap\limits_{i \in \mathcal{I}} S_i \right \rgroup$. This means
+                    \begin{equation*}
+                        a \in \{ y \in B \mid \exists x \in \bigcap\limits_{i \in \mathcal{I}} S_i \text{ s.t } y = f(x) \}
+                    \end{equation*}
+                    By this definition, $\exists \alpha \in \bigcap\limits_{i \in \mathcal{I}} S_i $ s.t $a = f(\alpha)$. So then $\forall i \in \mathcal{I}, \alpha \in S_i$. So $\forall i \in \mathcal{I}$, $f(\alpha) \in f(S_i)$ in which $f(S_i) \subseteq B$. This also means $f(\alpha) \in \bigcap\limits_{i \in \mathcal{I}} f(S_i)$ by our definition of intersection of family of sets. But we have $a = f(\alpha)$. So $a \in \bigcap\limits_{i \in \mathcal{I}} f(S_i)$. 
+
+        \end{proof}
+\end{enumerate}
+\end{document}

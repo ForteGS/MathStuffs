@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW19}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\begin{document}
+% Generates the title
+\maketitle
+\begin{enumerate}
+    \item[Problem 12.8:] Prove: If $f : A \rightarrow B$ is a function with domain $A$ and $T_i$ with $i \in \mathcal{I}$ is a family of sets where $\forall i \in \mathcal{I}$, $T_i \subseteq B$, then
+        \begin{equation*}
+            f^{-1} \left \lgroup \bigcup\limits_{i \in \mathcal{I}} T_i \right \rgroup = \bigcup\limits_{i \in \mathcal{I}} f^{-1}(T_i)
+        \end{equation*}
+        \begin{proof}
+            Let $f : A \rightarrow B$ be a function and $T_i$ with $i \in \mathcal{I}$ be a family of sets where $\forall i \in \mathcal{I}, T_i \subseteq B$. We want to prove 2 claims.
+            \begin{enumerate}
+                \item $f^{-1} \left \lgroup \bigcup\limits_{i \in \mathcal{I}} T_i \right \rgroup \subseteq \bigcup\limits_{i \in \mathcal{I}} f^{-1}(T_i)$\\
+                    Assume $x \in f^{-1} \left \lgroup \bigcup\limits_{i \in \mathcal{I}} T_i \right \rgroup$. By the theorem of image and pre-image, $f(x) \in \bigcup\limits_{i \in \mathcal{I}} T_i$. So then $\exists i \in \mathcal{I}$ s.t $f(x) \in T_i$. Since $f(x) \in T_i$ for some $i \in \mathcal{I}$, $x \in f^{-1}(T_i)$. Thus $x \in \bigcup\limits_{i \in \mathcal{I}} f^{-1}(T_i)$.
+                \item $f^{-1} \left \lgroup \bigcup\limits_{i \in \mathcal{I}} T_i \right \rgroup \supseteq \bigcup\limits_{i \in \mathcal{I}} f^{-1}(T_i)$\\
+                    Assume $x \in \bigcup\limits_{i \in \mathcal{I}} f^{-1}(T_i)$. So then $\exists i \in \mathcal{I}$ s.t $x \in f^{-1}(T_i)$. By the theorem of image and preimage, $f(x) \in T_i$ for some $i \in \mathcal{I}$. So then $f(x) \in \bigcup\limits_{i \in \mathcal{I}} T_i$. Again, by the theorem of image and preimage, $x \in f^{-1}(\bigcup\limits_{i \in \mathcal{I}} T_i)$.
+            \end{enumerate}
+            Thus $f^{-1} \left \lgroup \bigcup\limits_{i \in \mathcal{I}} T_i \right \rgroup = \bigcup\limits_{i \in \mathcal{I}} f^{-1}(T_i)$
+        \end{proof}
+    \item[Problem 12.10:] Prove: Let $f : A \rightarrow B$ be a function with domain $A$. Prove: if $\forall S \subseteq A, S = f^{-1}(f(S))$, then $f(x)$ is injective.
+        \begin{proof}
+            Let $f: A \rightarrow B$ be a function with domain $A$.\\
+            Assume $\forall S \subseteq A, S = f^{-1}(f(S))$. So $S = \{ x \in A \mid f(x) \in f(S)\}$. We wish to show: if $\forall x_1, x_2 \in A$ and $f(x_1) = f(x_2)$, then $x_1 = x_2$.\\
+            Assume $x_1 \in f^{-1}(f(S))$ and $ x_2 \in S$. So then $x_1, x_2 \in A$. Assume $f(x_1) = f(x_2)$. Since $x_1, x_2 \in S$, $f(x_1) \in f(S)$ and $f(x_2) \in f(S)$.
+        \end{proof}
+    \item[Problem 12.11:] Let $f: A \rightarrow B$ be a function with domain $A$. Prove: if $\forall T \subseteq B, T = f(f^{-1}(T))$, then $f(x)$ is surjective.
+        \begin{proof}
+            Let $f : A \rightarrow B$ be a function with domain $A$.\\
+            Assume $\forall T \subseteq B, T = f(f^{-1}(T))$. We want to show: if $y \in B$, then $\exists x \in A$ so that $f(x) = y$.\\
+            Assume $y \in B$. So then $y \in T$, meaning $y \in f(f^{-1}(T))$. So then $\exists x \in A$ so that $x \in f^{-1}(T)$. Since $f^{-1}(T) \subseteq A$, $x \in A$. 
+        \end{proof}
+\end{enumerate}
+\end{document}

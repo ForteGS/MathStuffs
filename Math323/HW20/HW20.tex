@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW20}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\begin{document}
+% Generates the title
+\maketitle
+Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be a function. We say $f$ is bounded if: $\exists m > 0$ s.t $\forall x \in \mathbb{R}, |f(x)| \le m$.
+\begin{enumerate}
+    \item[1.] Prove that $f: \mathbb{R} \rightarrow \mathbb{R}$, $f(x) = \frac{1}{x^2 + 1}$ is bounded.
+    \begin{proof}
+        Let $f: \mathbb{R} \rightarrow \mathbb{R}$, $f(x) = \frac{1}{x^2+1}$ is bounded. Let $x \in \mathbb{R}$. So then $x^2 + 1 \ge 1$ and thus $\frac{1}{x^2+1} \le 1$. We know $\frac{1}{x^2+1} > 0$ and thus $\frac{1}{x^2+1} \ge -1$. So we have $-1 \le \frac{1}{x^2+1} \le 1$. This means $|\frac{1}{x^2+1}| \le 1$.
+    \end{proof}
+    \item[2.] Prove that $g: \mathbb{R} \setminus \{1\} \rightarrow \mathbb{R}$, $g(x) = \frac{1}{x-1}$ is not bounded.
+    \begin{proof}
+        Let $g: \mathbb{R} \setminus \{1\} \rightarrow \mathbb{R}$, $g(x) = \frac{1}{x-1}$. We want to show: $\forall m > 0$, $\exists x \in \mathbb{R}$ s.t $|\frac{1}{x-1}| > m$.\\
+        Let $m > 0$. Let $x = \frac{m+2}{m+1} \in \mathbb{R}$.
+        \begin{align*}
+            |g(\frac{m+2}{m+1})| & = | \frac{1}{\frac{m+2}{m+1} - 1} | = | \frac{1}{\frac{m + 2 - m - 1}{m+1}} | = m + 1 > m
+        \end{align*}
+    \end{proof}
+\end{enumerate}
+\end{document}

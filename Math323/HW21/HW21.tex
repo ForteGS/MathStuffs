@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW20}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\begin{document}
+% Generates the title
+\maketitle
+Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be a function and let $a$ be in $\mathbb{R}$. We say $f$ is continuous at $a$ if $\forall \epsilon > 0, \exists \delta > 0$ s.t $ |x - a| < \delta$ implies $|f(x) - f(a)| < \epsilon$.
+\begin{enumerate}
+    \item[1.] Prove that $f: \mathbb{R} \rightarrow \mathbb{R}$, $f(x) = 2x$ is continuous at $1$.
+        \begin{proof}
+            Let $f: \mathbb{R} \rightarrow \mathbb{R}$, $f(x) = 2x$. We want to show $\forall > 0, \exists \delta > 0$ s.t $|x - 1| < \delta$ implies $|2x - 2| < \epsilon$.\\
+            Let $\epsilon > 0$. Let $\delta = \frac{\epsilon}{2}$. By the Average theorem, we know $\frac{\epsilon}{2} > 0$. Assume $|x - 1| < \delta$.
+            \begin{gather*}
+                |x - 1| < \frac{\epsilon}{2}\\
+                1 - \frac{\epsilon}{2} < x < 1 + \frac{\epsilon}{2}\\
+                2 - \epsilon < 2x < 2 + \epsilon\\
+                |2x - 2| < \epsilon
+            \end{gather*}
+        Thus $f:\mathbb{R} \rightarrow \mathbb{R}$, $f(x) = 2x$ is continuous at $1$.
+    \end{proof}
+    \item[2.] Prove that the sign function is not continuous at $0$.
+    \begin{proof}
+        Let $g(x)$ be a sign function of $x$.
+        \begin{equation*}
+            g(x) = \left\{
+                \begin{array}{rl}
+                    -1 & \text{ if } x < 0,\\
+                    0 & \text{ if } x = 0,\\
+                    1 & \text{ if } x > 0.
+                \end{array} \right.
+        \end{equation*}
+        We want to show: $\exists \epsilon > 0$ s.t $\forall \delta > 0$, $|x - 0| < \delta$ and $ |g(x) - g(0)| \ge \epsilon$.\\
+        Let $\epsilon = \frac{1}{2}$. Let $\delta > 0$.
+    \end{proof}
+\end{enumerate}
+\end{document}

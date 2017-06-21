@@ -43,18 +43,28 @@
     \begin{proof}
         Let $A$ and $B$ be countable sets. This respectively means,
         \begin{gather*}
-            \text{ There is an injection } i_1: A \rightarrow \mathbb{N}\\
-            \text{ There is an injection } i_2: B \rightarrow \mathbb{N}
+            \text{ There is an injection } f: A \rightarrow \mathbb{N}\\
+            \text{ There is an injection } g: B \rightarrow \mathbb{N}
         \end{gather*}
-        Want to show: There is an injection $i_3: A \cup B \rightarrow \mathbb{N}$. We define
+        We define $i_3: A \cup U \rightarrow \mathbb{N}$
         \begin{equation*}
-            i_3(x) = \left\{
+            h(x) = \left\{
                 \begin{array}{rl}
-                    i_1(x) \text{ if } x \in A \text{ and } x \notin B,\\
-                    i_2(x) \text{ if } x \in B \text{ and } x \notin A,\\
-                    x \text{ if } x \in A \text{ and } x \in B.
+                    2(f(x)) \text{ if } x \in A\\
+                    2(g(x)) + 1\text{ if } x \in B
                 \end{array} \right.
         \end{equation*}
+        Want to show: There is a function $h: A \cup B \rightarrow \mathbb{N}$ such that $h$ is an injection.\\
+        Assume $x_1, x_2 \in A \cup B$ and $h(x_1) = h(x_2)$. We have 3 cases to consider.
+        \begin{enumerate}
+            \item[1.] $x_1, x_2 \in A$.\\
+                Assume that is the case. Then we have $2(f(x_1)) = 2(f(x_2))$. So then $f(x_1) = f(x_2)$. Since $f$ is an injection, $x_1 = x_2$.
+            \item[2.] $x_1, x_2 \in B$.\\
+                Assume that is the case. Then we have $2(g(x_1)) + 1 = 2(g(x_2)) + 1$. So then $g(x_1) = g(x_2)$. Since $g$ is an injection, $x_1 = x_2$.
+            \item[3.] $x_1 \in A$ and $x_2 \in B$.\\
+                Assume BWOC that is the case. Then we have $2(f(x_1)) = 2(g(x)) + 1$. Since $f: A \rightarrow \mathbb{N}$ and so is $g$, $2(f(x_1))$ and $2(g(x)) + 1$ are in $\mathbb{R}$. So then $2(f(x_1))$ is even and $2(g(x)) + 1$ is odd and they are equal. This is a contradition, this case cannot happen.
+        \end{enumerate}
+        Thus, if $A$ and $B$ are countable sets, then $A \cup B$ is countable.
     \end{proof}
 \item[3.] Let $f: \mathbb{R} \rightarrow \mathbb{R}$ and $g: \mathbb{R} \rightarrow \mathbb{R}$ be functions that are both continuous at $1$. Prove that $f + g$ is continuous at $1$.
         \begin{proof}

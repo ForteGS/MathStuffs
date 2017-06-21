@@ -3,7 +3,7 @@
 \newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
 % I need a title
 \author{Minh Bui}
-\title{Math 323 HW20}
+\title{Math 323 HW21}
 
 \theoremstyle{claim}
 \newtheorem{claim}{Claim}
@@ -41,7 +41,8 @@ Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be a function and let $a$ be in $\mat
                 \end{array} \right.
         \end{equation*}
         We want to show: $\exists \epsilon > 0$ s.t $\forall \delta > 0$, $|x - 0| < \delta$ and $ |g(x) - g(0)| \ge \epsilon$.\\
-        Let $\epsilon = \frac{1}{2}$. Let $\delta > 0$.
+        Let $\epsilon = \frac{1}{2}$. Let $\delta > 0$. We choose $x = \frac{\delta}{2}$. So we have $|x| < \delta$ since $\frac{\delta}{2} < \delta$ with $\delta > 0$. And we also have $|g(\frac{\delta}{2} - g(0)| = |1 - 0| = 1 \ge \epsilon$.\\
+        Thus the sign function is not continuous at $0$.
     \end{proof}
 \end{enumerate}
 \end{document}

@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 HW22}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\begin{document}
+% Generates the title
+\maketitle
+\begin{enumerate}
+    \item[1.] Prove that the integers is countable.
+        \begin{proof}
+            To prove that the set of integers is countable, we need to find an injection (or one-to-one relationship) that maps $\mathbb{Z}$ to $\mathbb{N}$: $i: \mathbb{Z} \rightarrow \mathbb{N}$.\\
+            Let
+            \begin{equation*}
+            i(x) = \left\{
+                \begin{array}{rl}
+                    2x + 1 & \text{ if } x \ge 0,\\
+                    -2x & \text{ if } x < 0.
+                \end{array} \right.
+            \end{equation*}
+            We need to show that $i(x)$ is an injection.\\
+            Assume $x_1, x_2 \in \mathbb{Z}$ and $i(x_1) = i(x_2)$. We have 3 cases.
+            \begin{enumerate}
+                \item[1.] $2x_1 + 1 = 2x_2 + 1$\\
+                    Assume that is the case. We have $2x_1  = 2x_2$ and $x_1 = x_2$.
+                \item[2.] $-2x_1 = -2x_2$\\
+                    Assume that is the case. We have $x_1 = x_2$.
+                \item[3.] $2x_1 + 1 = -2x_2$\\
+                    Assume BWOC that is the case. Then $x_1 \ge 0$ and $x_2 < 0$. From the equation, $x_1 = \frac{-2x_2 -1}{2}$. But we know $x_1, x_2 \in \mathbb{Z}$ and $\frac{-2x_2 - 1}{2} \notin \mathbb{Z}$. So this case can't happen.
+            \end{enumerate}
+            Thus, $i(x)$ is an injection. And so the set of integers $\mathbb{Z}$ is countable.
+        \end{proof}
+    \item[2.] Let $A$ and $B$ be countable sets. Prove that $A \cup B$ is countable.
+    \begin{proof}
+        Let $A$ and $B$ be countable sets. This respectively means,
+        \begin{gather*}
+            \text{ There is an injection } i_1: A \rightarrow \mathbb{N}\\
+            \text{ There is an injection } i_2: B \rightarrow \mathbb{N}
+        \end{gather*}
+        Want to show: There is an injection $i_3: A \cup B \rightarrow \mathbb{N}$. We define
+        \begin{equation*}
+            i_3(x) = \left\{
+                \begin{array}{rl}
+                    i_1(x) \text{ if } x \in A \text{ and } x \notin B,\\
+                    i_2(x) \text{ if } x \in B \text{ and } x \notin A,\\
+                    x \text{ if } x \in A \text{ and } x \in B.
+                \end{array} \right.
+        \end{equation*}
+    \end{proof}
+\item[3.] Let $f: \mathbb{R} \rightarrow \mathbb{R}$ and $g: \mathbb{R} \rightarrow \mathbb{R}$ be functions that are both continuous at $1$. Prove that $f + g$ is continuous at $1$.
+        \begin{proof}
+            Let $f: \mathbb{R} \rightarrow \mathbb{R}$ and $g: \mathbb{R} \rightarrow \mathbb{R}$ be functions that are both continuous at $1$. So
+            \begin{gather*}
+                \forall \epsilon > 0, \exists \delta_1 > 0 \text{ s.t } |x - 1| < \delta_1 \text{ implies } |f(x) - f(1)| < \epsilon\\
+                \forall \epsilon > 0, \exists \delta_2 > 0 \text{ s.t } |x - 1| < \delta_2 \text{ implies } |g(x) - g(1)| < \epsilon
+            \end{gather*}
+            We want to show that $|f(x) + g(x) - f(1) - g(1)| < \epsilon$.
+            Let $\epsilon > 0$. So $\frac{\epsilon}{2} > 0$. Assume there is $\delta_1 > 0$ so that $|x - 1| < \delta_2$. Assume there is $\delta_2 > 0$ so that $|x - 1| < \delta_2$. Consider
+            \begin{gather*}
+                |f(x) - f(1)| < \frac{\epsilon}{2} \text{ and } |g(x) - g(1)| < \frac{\epsilon}{2}\\
+                |f(x) - f(1)| + |g(x) - g(1)| < \epsilon\\
+                |f(x) - f(1) + g(x) - g(1)| \le |f(x) - f(1)| + |g(x) - g(1)| < \epsilon\\
+                |f(x) + g(x) - f(1) - g(1)| < \epsilon
+            \end{gather*}
+        \end{proof}
+\end{enumerate}
+\end{document}

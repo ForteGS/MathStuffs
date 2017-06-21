@@ -34,7 +34,8 @@
         \begin{proof}
             Let $f: A \rightarrow B$ be a function with domain $A$.\\
             Assume $\forall S \subseteq A, S = f^{-1}(f(S))$. So $S = \{ x \in A \mid f(x) \in f(S)\}$. We wish to show: if $\forall x_1, x_2 \in A$ and $f(x_1) = f(x_2)$, then $x_1 = x_2$.\\
-            Assume $x_1 \in f^{-1}(f(S))$ and $ x_2 \in S$. So then $x_1, x_2 \in A$. Assume $f(x_1) = f(x_2)$. Since $x_1, x_2 \in S$, $f(x_1) \in f(S)$ and $f(x_2) \in f(S)$.
+            The contraposition of this statement says: if $\exists x_1 , x_2 \in A$ s.t $x_1 \ne x_2$, then $f(x_1) \ne f(x_2)$.\\
+            Assume $\exists x_1, x_2 \in A$, $x_1 \ne x_2$.
         \end{proof}
     \item[Problem 12.11:] Let $f: A \rightarrow B$ be a function with domain $A$. Prove: if $\forall T \subseteq B, T = f(f^{-1}(T))$, then $f(x)$ is surjective.
         \begin{proof}

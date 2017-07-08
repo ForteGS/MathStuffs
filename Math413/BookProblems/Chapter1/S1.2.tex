@@ -35,7 +35,7 @@
                     \item In the vector space $P(F)$ only polynomials of the same degree may be added.
                     \item[] False.
                     \item If $f$ and $g$ are polynomials of degree $n$, then $f + g$ is a polynomial of degree $n$.
-                    \item[] True.
+                    \item[] False. Consider $x + (-x) = 0$
                     \item If $f$ is a polynomial of degree $n$ and $c$ is a nonzero scalar, then $cf$ is a polynomial of degree $n$.
                     \item[] True.
                     \item A nonzero element of $F$ may be considered to be an element of $P(F)$ having degree zero.
@@ -161,6 +161,19 @@
                         Pretty much the same approach as the previous corollary.
                     \end{proof}
                 \end{enumerate}
+            \item[10.] Let $\mathcal{V}$ denote the set of all differentiable real-valued functions defined on the real line. Prove that $\mathcal{V}$ is a vector space under the operation of addition and scalar multiplication defined by
+                \begin{equation*}
+                    (f + g)(s) = f(s) + g(s) \text{ and } (cf)(s) = c[f(s)]
+                \end{equation*}
+                \begin{proof}
+                    Let $f, g$ be differentiable real-valued functions in $\mathcal{V}$. Since $(f + g)(s) = f(s) + g(s)$ is differentiable on real numbers, addition is closed in $\mathcal{V}$. Since $(cf)(s) = c[f(s)]$ for some $c \in \mathbb{R}$ is differentiable on real numbers, scalar multiplication is closed in $\mathcal{V}$. And the function $f = 0$ would be the zero vector in the vector space $\mathcal{V}$. Thus, $\mathcal{V}$ is a vector space.
+                \end{proof}
+            \item[11.] Let $\mathcal{V} = \{0\}$ consist of a single vector $0$ and define $0 + 0 = 0$ and $c0 = 0$ for each scalar $c \in \mathbb{F}$. Prove that $\mathcal{V}$ is a vector space over $\mathbb{F}$. Here $\mathcal{V}$ is called the \emph{zero vector space}.
+            \begin{proof}
+                Since $0$ is the only element of $\mathcal{V}$, all conditions and properties for vector space $\mathcal{V}$ can be easily checked.
+            \end{proof}
+
+        
         \end{enumerate}
 \end{enumerate}
 \end{document}

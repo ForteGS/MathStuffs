@@ -1,0 +1,370 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+% I need a title
+\author{Minh Bui}
+\title{Math 323 Definitions \& important theorems}
+
+\theoremstyle{claim}
+\newtheorem{claim}{Claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\begin{document}
+% Generates the title
+\maketitle
+The following is a list of learned definitions and theorems in introduction to pure math class.
+\begin{enumerate}
+    \item[1.] Minimum
+        \begin{definition}
+            Let $S$ be a non empty set of numbers. We say $m$ is a \emph{minimum} of the set $S$ if:
+            \begin{enumerate}
+                \item[1.] $m \in S$.
+                \item[2.] If $s \in S$, then $m \le s$.
+            \end{enumerate}
+        \end{definition}
+    \item[2.] Maximum
+        \begin{definition}
+            Let $S$ be a non empty set of numbers. We say $m$ is a \emph{maximum} of the set $S$ if:
+            \begin{enumerate}
+                \item[1.] $m \in S$.
+                \item[2.] If $s \in S$, then $m \ge s$.
+            \end{enumerate}
+        \end{definition}
+    \item[3.] Lower bound
+        \begin{definition}
+            Let $S$ be a set of numbers. We say $l$ is a \emph{lower bound} of the set $S$ when: if $s \in S$, then $l \le s$.
+        \end{definition}
+
+    \item[4.] Lower bound
+        \begin{definition}
+            Let $S$ be a set of numbers. We say $u$ is a \emph{upper bound} of the set $S$ when: if $s \in S$, then $l \ge s$.
+        \end{definition}
+    
+    \item[5.] Odd integer
+        \begin{definition}
+            An integer $z$ is \emph{odd} if and only if $\exists k \in \mathbb{Z}$ s.t $z = 2k + 1$.
+        \end{definition}
+
+    \item[6.] Even integer
+        \begin{definition}
+            An integer $z$ is \emph{even} if and only if $\exists k \in \mathbb{Z}$ s.t $z = 2k$.
+        \end{definition}
+
+    \item[7.] Trichotomy of an order
+        \begin{definition}
+            An order is said to have \emph{trichotomy} if for 2 numbers $a, b$ in that order exactly one of these holds: $a < b$, $a > b$, or $a = b$.
+        \end{definition}
+    
+    \item[8.] Transitivity of an order
+        \begin{definition}
+            An order is said to have \emph{transitivity} if for 3 numbers $a, b, c$ in that order, if $a < b$ and $b < c$, then $a < c$.
+        \end{definition}
+
+    \item[9.] The Division Algorithm
+        \begin{theorem}
+            Let $a, b \in \mathbb{Z}$ and $b > 0$, then $\exists q, r \in \mathbb{Z}$ s.t $a = bq + r$ with $0 \le r < b$.
+        \end{theorem}
+    \item[10.] The rational numbers $\mathbb{Q}$
+        \begin{definition}
+            Let $m \in \mathbb{Z}$ and $n \in \mathbb{N}$, then
+            \begin{equation*}
+                \mathbb{Q} = \{ \frac{m}{n} \mid m \in \mathbb{Z} \text{ and } n \in \mathbb{Z} \}
+            \end{equation*}
+            where $\frac{m}{n}$ is a set of equivalence fractions.
+        \end{definition}
+
+    \item[11.] Equality on $\mathbb{Q}$
+        \begin{definition}
+            Let $\frac{m}{n}, \frac{p}{q} \in \mathbb{Q}$. $\frac{m}{n} = \frac{p}{q}$ if $mq = np$.
+        \end{definition}
+    
+    \item[12.] Order on $\mathbb{Q}$
+        \begin{definition}
+            Let $\frac{m}{n}, \frac{p}{q} \in \mathbb{Q}$. $\frac{m}{n} < \frac{p}{q}$ if $mq < np$.
+        \end{definition}
+        
+    \item[13.] Addition on $\mathbb{Q}$  
+        \begin{definition}
+            Let $\frac{m}{n}, \frac{p}{q} \in \mathbb{Q}$. We define $\frac{m}{n} + \frac{p}{q} = \frac{mq + np}{nq}$
+        \end{definition}
+
+    \item[14.] Multiplication on $\mathbb{Q}$
+        \begin{definition}
+            Let $\frac{m}{n}, \frac{p}{q} \in \mathbb{Q}$. We define $\frac{m}{n} \cdot \frac{p}{q} = \frac{mp}{nq}$
+        \end{definition}
+
+    \item[15.] The Average Theorem
+        \begin{theorem}
+            If $a, b \in \mathbb{F}$ with $a < b$, then $\exists r \in \mathbb{F}$ s.t $a < r < b$. In fact, $r = \frac{a + b}{2}$ is an example.
+        \end{theorem}
+
+    \item[16.] Absolute value
+        \begin{definition}
+            Let $x \in \mathbb{F}$. We define the absolute value of $x$, denoted by $|x|$ as
+            \begin{equation*}
+                |x| = \left\{
+                    \begin{array}{rl}
+                        -x \text{ if } x < 0\\
+                        x \text{ if } x \ge 0
+                    \end{array} \right.
+            \end{equation*}
+        \end{definition}
+
+    \item[17.] Important theorems in absolute value
+        \begin{theorem}
+            Let $\mathbb{F}$ be an ordered field.
+            \begin{enumerate}
+                \item[1.] If $a \in \mathbb{F}$, then $|a| \ge 0$.
+                \item[2.] If $a \in \mathbb{F}$, then $-|a| \le a \le |a|$.
+                \item[3.] Let $r \in \mathbb{F}$, $r \ge 0$. Consider $x$ as a variable in $\mathbb{F}$. Then $|x - a| \le r$ if and only if $a - r \le x \le a + r$.  
+                \item[4.] Let $r \in \mathbb{F}$, $r > 0$. Consider $x$ as a variable in $\mathbb{F}$. Then $|x - a| < r$ if and only if $a - r < x < a + r$.
+                \item[5.] If $a, b \in \mathbb{F}$, then $|ab| = |a| \cdot |b|$.
+                \item[6.] \emph{The Triangle Inequalities.} Let $a, b \in \mathbb{F}$, then $|a + b| \le |a| + |b|$.
+            \end{enumerate}
+        \end{theorem}
+
+    \item[18.] Infimum ( Greatest lower bound )
+        \begin{definition}
+            Let $S$ be a set of real numbers and $g \in \mathbb{R}$, $g$ is an infimum of $S$ when
+            \begin{enumerate}
+                \item[1.] If $s \in \mathbb{S}$, then $g \le s$. And
+                \item[2.] If $x \in \mathbb{R}$ and $x > g$, then $\exists t \in S$ s.t $t < x$.
+            \end{enumerate}
+        \end{definition}
+    \item[19.] Supremum ( Least upper bound )
+        \begin{definition}
+            Let $S$ be a set of real numbers and $l \in \mathbb{R}$, $l$ is a supremum of $S$ when
+            \begin{enumerate}
+                \item[1.] If $s \in \mathbb{S}$, then $l \ge s$. And
+                \item[2.] If $x \in \mathbb{R}$ and $x < l$, then $\exists t \in S$ s.t $t > x$.
+            \end{enumerate}
+        \end{definition}
+
+    \item[20.] Complete ordered field.
+        \begin{definition}
+            An ordered field $\mathbb{F}$ is complete if for any nonempty subset $S$ of $\mathbb{F}$ and $S$ has at least one lower bound, then $\exists g \in \mathbb{F}$ that is the infimum of $S$.
+        \end{definition}
+    
+    \item[21.] The Well-Ordering Principle
+        \begin{theorem}
+            Let $U$ be a set with total order. $U$ is well ordered if $A \subseteq U \ne \emptyset$, then $A$ has a minimum.
+        \end{theorem}
+
+    \item[22.] The theorem of Induction
+        \begin{theorem}
+            For all $n \in \mathbb{N}$. Let $P(n)$ be a statement that is either true or false but not both. If the following conditions hold
+            \begin{enumerate}
+                \item[1.] If $n = 1$, then $P(n)$ is true.
+                \item[2.] If for $n = n_0$, $P(n)$ is true, then for $n = n_0 + 1$, $P(n)$ is also true.
+            \end{enumerate}
+            then $P(n)$ is true.
+        \end{theorem}
+
+    \item[23.] The Alternate completeness axiom
+        \begin{theorem}
+            For a completed ordered field $\mathbb{R}$: If $S$ is a nonempty subset of $\mathbb{R}$ and $S$ has at least 1 upper bound, then there is an $l \in \mathbb{R}$ that is the supremum of the set $S$.
+            \begin{corollary}
+                \begin{enumerate}
+                    \item[1.] If $r \in \mathbb{R}$, then there is an $n \in \mathbb{Z}$ s.t $n < r$.
+                    \item[2.] If $x \in \mathbb{R}$ and $x > 0$, then there is an $n \in \mathbb{N}$ s.t $0 < \frac{1}{n} < x$.
+                \end{enumerate}
+            \end{corollary}
+        \end{theorem}
+
+    \item[24.] The Archimedean principle
+        \begin{theorem}
+            Let $r \in \mathbb{R}$, then there is $n \in \mathbb{N}$ s.t $n > r$.
+            \begin{corollary}
+                The following are equivalent to the Archimedean principle.
+                \begin{enumerate}
+                    \item[1.] If $r \in \mathbb{R}$, then there is an $n \in \mathbb{Z}$ s.t $n < r$.
+                    \item[2.] If $x \in \mathbb{R}$ and $x > 0$, then there is an $n \in \mathbb{N}$ s.t $0 < \frac{1}{n} < x$.
+                \end{enumerate}
+            \end{corollary}
+        \end{theorem}
+    
+    \item[25.] The Density theorem
+        \begin{theorem}
+            Let $a, b \in \mathbb{R}$ so that $a < b$, then there is $q \in \mathbb{Q}$ so that $a < q < b$.
+        \end{theorem}
+
+    \item[26.] Subset
+        \begin{definition}
+            Let $A$ and $B$ be setes. We say $A$ is a subset of $B$ when if $x \in A$, then $x \in B$. We write this as $A \subseteq B$.
+        \end{definition}
+
+    \item[27.] Equality of sets
+        \begin{definition}
+            Let $A$ and $B$ be sets. We say $A = B$ if and only if $A \subseteq B$ and $B \subseteq A$.
+        \end{definition}
+
+    \item[28.] Union of the family of sets.
+        \begin{definition}
+            Let $S_i$ where $i \in \mathcal{I}$ be a family of sets. Then the union of the family is
+            \begin{equation*}
+                \bigcup\limits_{i \in \mathcal{I}} S_i = \{ x \mid \exists i \in \mathcal{I} \text{ s.t } x \in S_i \}
+            \end{equation*}
+        \end{definition}
+
+    \item[29.] Intersection of the family of sets.
+        \begin{definition}
+            Let $S_i$ where $i \in \mathcal{I}$ be a family of sets. Then the intersection of the family is:
+            \begin{equation*}
+                \bigcap\limits_{i \in \mathcal{I}} S_i = \{ x \mid \forall i \in \mathcal{I}, x \in S_i \}
+            \end{equation*}
+        \end{definition}
+
+    \item[30.] Definition of union, intersection, and takeaway of 2 sets.
+        Let $A$ and $B$ be sets.
+        \begin{enumerate}
+            \item[1.] The intersection of $A$ and $B$ is
+                \begin{equation*}
+                    A \cap B = \{ x \mid x \in A \text{ and } x \in B \}
+                \end{equation*}
+            \item[2.] The union of $A$ and $B$ is
+                \begin{equation*}
+                    A \cup B = \{ x \mid x \in A \text{ or } x \in B \}
+                \end{equation*}
+            \item[3.] The set $A$ takeaway $B$ is
+                \begin{equation*}
+                    A \setminus B = \{ x \mid x \in A \text{ and } x \notin B \}
+                \end{equation*}
+        \end{enumerate}
+
+    \item[31.] Theorems for family of sets.
+        \begin{theorem}
+            Let $A$ be set and $B_i$ with $i \in \mathcal{I}$ be a family of sets. Then
+            \begin{enumerate}
+                \item[1.] $A \cup ( \bigcap\limits_{i \in \mathcal{I}} B_i ) = \bigcap\limits_{i \in \mathcal{I}} (A \cup B_i)$
+                \item[2.] $A \cup ( \bigcup\limits_{i \in \mathcal{I}} B_i) = \bigcup\limits_{i \in \mathcal{I}} (A \cup B_i)$
+                \item[3.] $A \setminus ( \bigcap\limits_{i \in \mathcal{I}} B_i ) = \bigcup\limits_{i \in \mathcal{I}} (A \setminus B_i)$
+                \item[4.] $A \setminus ( \bigcup\limits_{i \in \mathcal{I}} B_i ) = \bigcap\limits_{i \in \mathcal{i}} (A \setminus B_i)$
+            \end{enumerate}
+        \end{theorem}
+
+    \item[32.] Ordered pair
+        \begin{definition}
+            An ordered pair is a set of the form $\{ a, \{a, b\} \}$. We write it as $(a, b)$.
+        \end{definition}
+
+    \item[33.] The Cartesian product
+        \begin{definition}
+            Let $A$ and $B$ be sets. The Cartesian product $A \times B$ is the set.
+            \begin{equation*}
+                A \times B = \{ (a, b) \mid a \in A \text{ and } b \in B \}
+            \end{equation*}
+        \end{definition}
+
+    \item[34.] Relation
+        \begin{definition}
+            Let $A$ and $B$ be sets. A relation between $A$ and $B$ is a subset $\mathcal{R} \subseteq A \times B$. If $A = B$, we say it is a relation on $A$ and $B$. We write
+            \begin{equation*}
+                (a, b) \in \mathcal{R} \text{ as } a \mathcal{R} b
+            \end{equation*}
+        \end{definition}
+
+    \item[35.] Reflexive relation
+        \begin{definition}
+            Let $\mathcal{R}$ be a relation on set $A$. We say the relation is reflexive when, for all $a \in A$, $a \mathcal{R} a$.
+        \end{definition}
+
+    \item[36.] Symmetric relation
+        \begin{definition}
+            Let $\mathcal{R}$ be a relation on set $A$. We say the relation is symmetric if $a, b \in A$ and $a \mathcal{R} b$, then $b \mathcal{R} a$.
+        \end{definition}
+
+    \item[36.] Transitive
+        \begin{definition}
+            Let $\mathcal{R}$ be a relation on set $A$. We say the relation is transitive if $a, b, c \in A$ and $a \mathcal{R} b$ and $b \mathcal{R} c$, then $a \mathcal{R} c$.
+        \end{definition}
+
+    \item[37.] Trichotomy
+        \begin{definition}
+            Let $\mathcal{R}$ be a relation on the set $A$. We say that the relation has trichotomy when, $\forall a, b \in A$, exactly 1 of the following holds: $a \mathcal{R} b$, $b \mathcal{R} a$, or $a = b$.
+        \end{definition}
+
+    \item[38.] Total order
+        \begin{definition}
+            Let $A$ be set. A relation on $A$ is a total order when it is transitive and has trichotomy.
+        \end{definition}
+
+    \item[39.] Equivalence relation
+        \begin{definition}
+            Let $A$ be a set. A relation on $A$ is an equivalence relation when it is reflexive, symmetric, and transitive.
+        \end{definition}
+
+    \item[40.] Equivalence class
+        \begin{definition}
+            Let $A$ be a set with an equivalence relation $\equiv$. For any $a \in A$, the equivalence class of $a$ is a set
+            \begin{equation*}
+                [a] = \{ x \in A \mid x \equiv A \} \subseteq A
+            \end{equation*}
+        \end{definition}
+
+    \item[41.] Theorems for equivalence relation.
+        \begin{theorem}
+            Let $A$ be a set with an equivalence relation $\equiv$. Assume that $a, b \in A$.
+            \begin{enumerate}
+                \item[1.] $a \in [a]$
+                \item[2.] If $a \in [b]$, then $b \in [a]$.
+                \item[3.] If $a \in [b]$, then $[a] = [b]$.
+                \item[4.] If $[a] \cap [b] \ne \emptyset$, then $[a] = [b]$.
+            \end{enumerate}
+        \end{theorem}
+
+    \item[42.] Modulo equivalence
+        \begin{definition}
+            Let $A$ be a set with an equivalence relation $\equiv$. We define a new set called "A modulo equivalence" or "A mod $\equiv$" as
+            \begin{equation*}
+                A_{/ \equiv} = \{ [a] \subseteq A \mid a \in A\}
+            \end{equation*}
+        \end{definition}
+
+    \item[43.] Function
+        \begin{definition}
+            Let $A$ and $B$ be sets. A function from $A$ to $B$ is a pair $(f, B)$ where $f \subseteq A \times B$ s.t if $(a, b_1) \in f$ and $(a, b_2) \in f$, then $b_1 = b_2$.
+        \end{definition}
+
+    \item[44.] Domain of function
+        \begin{definition}
+            Let $f: A \rightarrow B$ be a function. The domain of $f$ is
+            \begin{equation*}
+                Domain(f) = \{ x \in A \mid \exists y \in B \text{ s.t } y = f(x) \}
+            \end{equation*}
+        \end{definition}
+
+    \item[45.] Range of a function
+        \begin{definition}
+            Let $f: A \rightarrow B$ be a function. The range of $f$ is
+            \begin{equation*}
+                Range(f) = \{ y \in B \mid \exists x \in A \text{ s.t } y = f(x) \}
+            \end{equation*}
+        \end{definition}
+
+    \item[46.] Codomain of a function
+        \begin{definition}
+            Let $f: A \rightarrow B$ be a function. The co-domain of $f$ is
+            \begin{equation*}
+                CoDomain(f) = B
+            \end{equation*}
+        \end{definition}
+
+    \item[47.] Injective function
+        \begin{definition}
+            Let $f: A \rightarrow B$ be a function. We say $f$ is an injective function if: if $a_1, a_2 \in A$ and $f(a_1) = f(a_2)$, then $a_1 = a_2$
+        \end{definition}
+
+    \item[48.] Surjective function
+        \begin{definition}
+            Let $f: A \rightarrow B$ be a function. We say $f$ is surjective if: if $y \in \mathbb{B}$, then $\exists x \in A$ s.t $f(x) = y$.
+        \end{definition}
+
+    \item[49.] Bijective function.
+        \begin{definition}
+            A function is bijective when it is both injective and surjective.
+        \end{definition}
+\end{enumerate}
+\end{document}

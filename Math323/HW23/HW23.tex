@@ -47,16 +47,16 @@
                 \item[1.] If $a \in A$, then $Inf(A) \le a$.
                 \item[2.] If $x \in \mathbb{R}$ and $x > Inf(A)$, then $\exists \alpha \in A$ s.t $ \alpha < x$.
             \end{enumerate}
-            We want to prove that $Inf(A) \in N(x, \epsilon) \cap \mathbb{R} \setminus A$ and $Inf(A) \in N(x, \epsilon) \cap A$. We consider 2 cases:
-            \begin{enumerate}
-                \item[1.] $Inf(A) \in A$.
-                \item[2.] $Inf(A) \notin A$.
-            \end{enumerate}
+            We want to prove that $ \forall \epsilon > 0, N(Inf(A), \epsilon) \cap (\mathbb{R} \setminus A) \ne \emptyset$ and $N(Inf(A), \epsilon) \cap A \ne \emptyset$. \\
+            Let $\epsilon > 0$. We know $Inf(A) - \epsilon \notin A$. So then $(Inf(A) - \epsilon, Inf(A) + \epsilon) \cap (\mathbb{R} \setminus A) \ne \emptyset$. This means $N(Inf(A), \epsilon) \cap (\mathbb{R} \setminus A) \ne \emptyset$.\\
+            Let $x = Inf(A) + \epsilon$. By (2), $\exists \alpha \in A$ s.t $ \alpha < Inf(A) + \epsilon$.So then $\alpha \in (Inf(A) - \epsilon, Inf(A) + \epsilon)$, which means $\alpha \in N(Inf(A), \epsilon)$.Thus $N(Inf(A), \epsilon) \cap A \ne \emptyset$.
         \end{proof}
     \item[Problem 16.6a:] Let $A \subseteq B \subseteq \mathbb{R}$. Prove the following: $Int(A) \subseteq Int(B)$.
         \begin{proof}
             Let $A \subseteq B \subseteq \mathbb{R}$. Assume $x \in Int(A)$. So then $\exists \epsilon > 0$ such that $N(x, \epsilon) \subseteq A$. But we know $N(x, \epsilon) = \{ r \in \mathbb{R} \mid |r - x| < \epsilon\}$, which means $x \in N(x, \epsilon)$. Since $N(x, \epsilon) \subseteq A$ and we also know $A \subseteq B$, $N(x, \epsilon) \subseteq B$. This means $x \in Int(B)$.
         \end{proof}
     \item[Problem 16.7a:] Let $A \subseteq B \subseteq \mathbb{R}$. Why can't we use this to prove the following results? $\partial(A) \subseteq \partial(B)$.
+    \item[] \emph{Attempted answer.} Let $A \subseteq B \subseteq \mathbb{R}$. Let $x \in \partial(A)$ and let $\epsilon > 0$. So then $N(x, \epsilon) \cap A \ne \emptyset$ and $N(x, \epsilon) \cap (\mathbb{R} \setminus A) \ne \emptyset$. Since $A \subseteq B$ and $N(x, \epsilon) \cap A \ne \emptyset$, $N(x, \epsilon) \cap B \ne \emptyset$. Knowing $N(x, \epsilon) \cap (\mathbb{R} \setminus A) \ne \emptyset$ is not enough to say $N(x, \epsilon) \cap (\mathbb{R} \setminus B) \ne \emptyset$.
+    \item[] \emph{Example. } Consider set $A = (1, 2)$ and $B = (0, 3)$. It's true that $A \subseteq B \subseteq \mathbb{R}$. But $\partial(A) = \{ 1, 2 \}$ and $\partial(B) = \{0, 3\}$ and $\partial(A) \nsubseteq \partial(B)$.
 \end{enumerate}
 \end{document}

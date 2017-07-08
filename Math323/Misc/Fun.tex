@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, verbatim, amsthm}
+\author{Minh Bui}
+\title{Proof: All horses have the same color xd}
+\newtheorem{theorem}{Theorem}
+\begin{document}
+\maketitle
+\begin{theorem}
+    All horses have the same color.
+    \begin{proof}
+        Since the number of horses is a natural number, let $n \in \mathbb{N}$ be the number of horses. We proceed proving the above claim using induction on $n$. We need to prove 2 claims.
+        \begin{enumerate}
+            \item[1.] If $n = 1$, then all horses have the same color.
+            \item[] Assume $n = 1$. So we have 1 horse. This means the group of 1 horse have the same color, which is true by default.
+            \item[2.] If a group of $n_0$ horses have the same color, then a group of $n_0 + 1$ horses have the same color.
+            \item[] Assume $n_0$ horses have the same color. 
+                We number these horses accordingly.
+                \begin{equation*}
+                    1, 2, 3, ..., n_0 \text{ have the same color }
+                \end{equation*}
+
+                By our inductive hypothesis, $n_0$ horses have the same color. So then for
+                \begin{equation*}
+                    2, 3, 4, ..., n_0 + 1
+                \end{equation*}
+                these horses have the same color.\\
+                So we can conclude the horses from
+                \begin{equation*}
+                    1, 2, 3, 4, ..., n_0, n_0 + 1
+                \end{equation*}
+                have the same color.
+        \end{enumerate}
+        Thus, all horses have the same color by induction on $n$.
+    \end{proof}
+\end{theorem}
+\end{document}
